@@ -69,4 +69,17 @@ public class MainUIController implements Initializable {
         series.getData().add(new XYChart.Data(x, y));
         chart.getData().addAll(series);
     }
+
+    /**
+     * String to Double
+     * 失敗時には0を返す
+     */
+    private double parseDouble(String s) {
+        try {
+            return Double.parseDouble(s);
+        } catch (Exception e) {
+            return 0.0;
+        }
+    }
+
 }
