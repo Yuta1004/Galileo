@@ -1,10 +1,19 @@
 package simulator;
 
+import javafx.scene.chart.XYChart;
+
 import java.util.ArrayList;
 
 public class RockManager {
 
     private ArrayList<Rock> rocks;
+
+    /**
+     * コンストラクタ
+     */
+    public RockManager() {
+        rocks = new ArrayList<Rock>();
+    }
 
     /**
      * 空気抵抗なし噴石追加
@@ -28,7 +37,7 @@ public class RockManager {
      * @param diameter 噴石の直径
      */
     public void addAirResistanceRock(double x, double y, double v0, double theta, double diameter) {
-        rocks.add(new AirRisistanceRock(x, y, v0, theta, diameter));
+        rocks.add(new AirResistanceRock(x, y, v0, theta, diameter));
     }
 
     /**
@@ -37,5 +46,17 @@ public class RockManager {
     public void move() {
         for(Rock rock: rocks)
             rock.move();
+    }
+
+    /**
+     * Chart用データを返す
+     *
+     * @return XYChart.Series
+     */
+    public XYChart.Series getChartData(int idx) {
+        XYChart.Series series = new XYChart.Series();
+        for(Rock rock: rocks)
+            series.getData().add(new XYChart.Data(rock.getX(), rock.getY()));
+        return series;
     }
 }
