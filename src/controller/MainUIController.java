@@ -9,9 +9,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.animation.Timeline;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import simulator.RockManager;
 
 public class MainUIController implements Initializable {
 
@@ -29,6 +35,8 @@ public class MainUIController implements Initializable {
     private ScatterChart chart;
     private double updateSpeed;
     private double widthFVal, widthTVal, heightFVal, heightTVal;
+    private RockManager rockManager;
+    private Timeline tl;
 
     /**
      * 初期化
@@ -41,6 +49,8 @@ public class MainUIController implements Initializable {
         widthFVal = heightFVal = 0;
         widthTVal = 1000;
         heightTVal = 800;
+        rockManager = new RockManager();
+        setData(rockManager.getChartData());
 
         // UIイベント
         speed.valueProperty().addListener((obs, oldVal, newVal) -> {
@@ -97,6 +107,25 @@ public class MainUIController implements Initializable {
         AnchorPane.setBottomAnchor(chart, 0.0);
         chartPane.getChildren().clear();
         chartPane.getChildren().add(chart);
+    }
+
+    /**
+     * TimeLine初期化
+     */
+    private void initTimeLine() {
+        if(tl != null && tl.getStatus().equals(Animation.Status.RUNNING))
+            return;
+        tl = new Timeline(
+                new KeyFrame(
+                    Duration.seconds(0.5),
+                    event -> {
+                        rockManager.move(50);
+                        setData(rockManager.getChartData());
+                    }
+                )
+            );
+        tl.setCycleCount(Timeline.INDEFINITE);
+        tl.play();
     }
 
     /**
