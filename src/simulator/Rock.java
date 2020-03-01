@@ -1,3 +1,5 @@
+package simulator;
+
 public abstract class Rock {
 
     protected double x, y;

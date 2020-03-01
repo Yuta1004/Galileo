@@ -1,3 +1,5 @@
+package simulator;
+
 public class PlainRock extends Rock {
 
     // 計算用変数
