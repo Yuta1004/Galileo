@@ -1,12 +1,18 @@
 package simulator;
 
 import javafx.scene.chart.XYChart;
+import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
 public class RockManager {
 
     private ArrayList<Rock> rocks;
+    private Color[] colors = {
+        Color.FORESTGREEN, Color.CORAL, Color.MAGENTA, Color.CRIMSON, Color.BLUE,
+        Color.BROWN, Color.CHARTREUSE, Color.AQUAMARINE, Color.BLACK, Color.DARKORANGE
+    };
 
     /**
      * コンストラクタ
@@ -58,8 +64,12 @@ public class RockManager {
      */
     public XYChart.Series getChartData() {
         XYChart.Series series = new XYChart.Series();
-        for(Rock rock: rocks)
-            series.getData().add(new XYChart.Data(rock.getX(), rock.getY()));
+        for(int idx = 0; idx < rocks.size(); ++ idx) {
+            Rock rock = rocks.get(idx);
+            XYChart.Data data = new XYChart.Data(rock.getX(), rock.getY());
+            data.setNode(new Circle(5, colors[idx%10]));
+            series.getData().add(data);
+        }
         return series;
     }
 }
