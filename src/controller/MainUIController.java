@@ -47,11 +47,11 @@ public class MainUIController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         // 初期化
-        initChart(0, 1000, 0, 800);
         updateSpeed = 1.0;
         widthFVal = heightFVal = 0;
         widthTVal = 1000;
         heightTVal = 800;
+        initChart();
         rockManager = new RockManager();
         setData(rockManager.getChartData());
 
@@ -59,7 +59,7 @@ public class MainUIController implements Initializable {
         init.setOnAction(event -> {
             if(tl != null)
                 tl.stop();
-            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+            initChart();
         });
         play.setOnAction(event -> {
             if(tl != null && tl.getStatus().equals(Animation.Status.RUNNING)) {
@@ -86,42 +86,37 @@ public class MainUIController implements Initializable {
         });
         widthF.textProperty().addListener((obs, oldText, newText) -> {
             widthFVal = parseDouble(newText);
-            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+            initChart();
         });
         widthT.textProperty().addListener((obs, oldText, newText) -> {
             widthTVal = parseDouble(newText);
-            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+            initChart();
         });
         heightF.textProperty().addListener((obs, oldText, newText) -> {
             heightFVal = parseDouble(newText);
-            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+            initChart();
         });
         heightT.textProperty().addListener((obs, oldText, newText) -> {
             heightTVal = parseDouble(newText);
-            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+            initChart();
         });
     }
 
     /**
      * ScatterChart初期化
-     *
-     * @param widthF 描画幅(From)
-     * @param widthT 描画幅(To)
-     * @param heightF 描画高さ(From)
-     * @param heightT 描画高さ(To)
      */
-    private void initChart(double widthF, double widthT, double heightF, double heightT) {
+    private void initChart() {
         // NumberAxis初期化
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Distance(m)");
         xAxis.setAutoRanging(false);
-        xAxis.setLowerBound(widthF);
-        xAxis.setUpperBound(widthT);
+        xAxis.setLowerBound(widthFVal);
+        xAxis.setUpperBound(widthTVal);
         yAxis.setLabel("Height(m)");
         yAxis.setAutoRanging(false);
-        yAxis.setLowerBound(heightF);
-        yAxis.setUpperBound(heightT);
+        yAxis.setLowerBound(heightFVal);
+        yAxis.setUpperBound(heightTVal);
 
         // Chart設定
         chart = new ScatterChart<>(xAxis, yAxis);
