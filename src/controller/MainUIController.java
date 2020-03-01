@@ -56,7 +56,15 @@ public class MainUIController implements Initializable {
         setData(rockManager.getChartData());
 
         // UIイベント
-        play.setOnAction(event -> initTimeLine());
+        play.setOnAction(event -> {
+            if(tl != null && tl.getStatus().equals(Animation.Status.RUNNING)) {
+                play.setText("▷");
+                tl.stop();
+            } else {
+                play.setText("□");
+                initTimeLine();
+            }
+        });
         skip.setOnAction(event -> {
             rockManager.move(1);
             setData(rockManager.getChartData());
