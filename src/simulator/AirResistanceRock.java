@@ -31,7 +31,7 @@ public class AirResistanceRock extends Rock {
         rho_air = 1.2;
         rho_rock = 2800;
         mass = rho_rock*(4.0/3.0)*PI*Math.pow(diameter/2.0, 3);
-        area = PI*Math.pow(dm/2.0, 2);
+        area = PI*Math.pow(diameter/2.0, 2);
 
         // 計算用変数初期化
         vxp = v0*Math.cos(theta*PI/180.0);
