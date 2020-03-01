@@ -6,6 +6,8 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Slider;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -17,10 +19,15 @@ public class MainUIController implements Initializable {
     @FXML
     private AnchorPane chartPane;
     @FXML
+    private Slider speed;
+    @FXML
+    private Label speedVal;
+    @FXML
     private TextField widthF, widthT, heightF, heightT;
 
     // 描画用
     private ScatterChart chart;
+    private double updateSpeed;
     private double widthFVal, widthTVal, heightFVal, heightTVal;
 
     /**
@@ -30,11 +37,16 @@ public class MainUIController implements Initializable {
     public void initialize(URL location, ResourceBundle resource) {
         // 初期化
         initChart(0, 1000, 0, 800);
+        updateSpeed = 1.0;
         widthFVal = heightFVal = 0;
         widthTVal = 1000;
         heightTVal = 800;
 
         // UIイベント
+        speed.valueProperty().addListener((obs, oldVal, newVal) -> {
+            updateSpeed = Math.round(oldVal.doubleValue()*10)/10.0;
+            speedVal.setText(updateSpeed+"");
+        });
         widthF.textProperty().addListener((obs, oldText, newText) -> {
             widthFVal = parseDouble(newText);
             initChart(widthFVal, widthTVal, heightFVal, heightTVal);
