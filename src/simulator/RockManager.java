@@ -67,7 +67,7 @@ public class RockManager {
         for(int idx = 0; idx < rocks.size(); ++ idx) {
             Rock rock = rocks.get(idx);
             XYChart.Data data = new XYChart.Data(rock.getX(), rock.getY());
-            data.setNode(new Circle(5, colors[idx%10]));
+            data.setNode(new Circle(3, colors[idx%10]));
             series.getData().add(data);
         }
         return series;
