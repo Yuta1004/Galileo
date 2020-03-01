@@ -118,6 +118,7 @@ public class MainUIController implements Initializable {
 
         // Chart設定
         chart = new ScatterChart<>(xAxis, yAxis);
+        chart.setLegendVisible(false);
         chart.setAnimated(false);
 
         // 配置
