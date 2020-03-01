@@ -19,7 +19,7 @@ public class Main extends Application {
             // 画面サイズ取得
             Rectangle2D d = Screen.getPrimary().getVisualBounds();
             int width = (int)Math.min(1280, d.getWidth());
-            int height = (int)Math.min(720, d.getHeight());
+            int height = (int)Math.min(800, d.getHeight());
 
             // Scene初期化
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainUI.fxml"));
