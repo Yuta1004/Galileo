@@ -121,12 +121,12 @@
                 <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="initBtn" mnemonicParsing="false" prefWidth="150.0" text="Initialize">
+                  <Button fx:id="init" mnemonicParsing="false" prefWidth="150.0" text="Initialize">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Button>
-                  <Button fx:id="resetBtn" mnemonicParsing="false" prefWidth="150.0" text="Reset" GridPane.columnIndex="1">
+                  <Button fx:id="reset" mnemonicParsing="false" prefWidth="150.0" text="Reset" GridPane.columnIndex="1">
                      <font>
                         <Font size="22.0" />
                      </font>

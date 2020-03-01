@@ -30,7 +30,7 @@ public class MainUIController implements Initializable {
     @FXML
     private Label speedVal;
     @FXML
-    private Button play, skip, skip10;
+    private Button play, skip, skip10, init, reset;
     @FXML
     private TextField widthF, widthT, heightF, heightT;
 
@@ -56,6 +56,11 @@ public class MainUIController implements Initializable {
         setData(rockManager.getChartData());
 
         // UIイベント
+        init.setOnAction(event -> {
+            if(tl != null)
+                tl.stop();
+            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+        });
         play.setOnAction(event -> {
             if(tl != null && tl.getStatus().equals(Animation.Status.RUNNING)) {
                 play.setText("▷");
