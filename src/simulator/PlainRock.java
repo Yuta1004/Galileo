@@ -15,6 +15,7 @@ public class PlainRock extends Rock {
      * @param theta 射出角度
      */
     public PlainRock(double x, double y, double v0, double theta) {
+        // 初期化
         super(x, y, v0, theta);
         vxp = v0*Math.cos(theta*PI/180.0);
         vyp = v0*Math.sin(theta*PI/180.0);
@@ -22,6 +23,20 @@ public class PlainRock extends Rock {
 
     @Override
     public void move() {
+    }
+
+    /**
+     * 計算用変数を更新する
+     */
+    private void updateCalcData() {
+        xb = x;
+        yb = y;
+        vxb = vxp;
+        vyb = vyp;
+        x = xf;
+        y = yf;
+        vxp = vxf;
+        vyp = vyf;
     }
 
 }
