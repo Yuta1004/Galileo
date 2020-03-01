@@ -4,6 +4,7 @@ public abstract class Rock {
 
     protected double x, y;
     protected final double v0, theta;
+    protected final double X, Y;
     public static double G = 9.8;
     public static double PI = 3.141592653589793;
 
@@ -17,6 +18,8 @@ public abstract class Rock {
      * @param theta 射出角度
      */
     public Rock(double x, double y, double v0, double theta) {
+        X = x;
+        Y = y;
         this.x = x;
         this.y = y;
         this.v0 = v0;
@@ -45,4 +48,9 @@ public abstract class Rock {
      * シミュレート
      */
     public abstract void move();
+
+    /**
+     * リセット
+     */
+    public abstract void reset();
 }

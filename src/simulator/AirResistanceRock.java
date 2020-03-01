@@ -56,6 +56,18 @@ public class AirResistanceRock extends Rock {
         ++ moveCnt;
     }
 
+    @Override
+    public void reset() {
+        x = X;
+        y = Y;
+        xb = xf = 0;
+        yb = yf = 0;
+        vxb = vxf = 0;
+        vyb = vyf = 0;
+        vxp = v0*Math.cos(theta*PI/180.0);
+        vyp = v0*Math.sin(theta*PI/180.0);
+    }
+
     /**
      * 計算用変数を更新する
      */
