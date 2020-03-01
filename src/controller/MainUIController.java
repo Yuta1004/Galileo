@@ -61,6 +61,11 @@ public class MainUIController implements Initializable {
                 tl.stop();
             initChart();
         });
+        reset.setOnAction(event -> {
+            rockManager.reset();
+            initChart();
+            setData(rockManager.getChartData());
+        });
         play.setOnAction(event -> {
             if(tl != null && tl.getStatus().equals(Animation.Status.RUNNING)) {
                 play.setText("▷");
