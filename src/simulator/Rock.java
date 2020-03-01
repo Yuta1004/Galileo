@@ -1,6 +1,8 @@
 public class Rock {
 
     private double x, y;
+    private static double G = 9.8;
+    private static double PI = 3.141592653589793;
 
     /**
      * コンストラクタ
