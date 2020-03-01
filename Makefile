@@ -22,5 +22,6 @@ clean:
 
 clean-hard:
 	make clean
-	rm -rf .*.*.un* .*.un* **/.*.*.un* **/.*.un* **/**/.*.*.un* **/**/.*.un*
+	find **/*.args | xargs rm -rf
+	find **/*.un* | xargs rm -rf
 
