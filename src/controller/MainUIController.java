@@ -66,11 +66,11 @@ public class MainUIController implements Initializable {
             }
         });
         skip.setOnAction(event -> {
-            rockManager.move(1);
+            rockManager.move(10);
             setData(rockManager.getChartData());
         });
         skip10.setOnAction(event -> {
-            rockManager.move(10);
+            rockManager.move(30);
             setData(rockManager.getChartData());
         });
         speed.valueProperty().addListener((obs, oldVal, newVal) -> {
@@ -142,7 +142,7 @@ public class MainUIController implements Initializable {
                 new KeyFrame(
                     new Duration(500/updateSpeed),
                     event -> {
-                        rockManager.move(50);
+                        rockManager.move(10);
                         setData(rockManager.getChartData());
                     }
                 )
