@@ -41,11 +41,14 @@ public class RockManager {
     }
 
     /**
-     * 1ステップ進める
+     * 指定ステップ進める
+     *
+     * @param n ステップ数
      */
-    public void move() {
-        for(Rock rock: rocks)
-            rock.move();
+    public void move(int n) {
+        for(int idx = 0; idx < n; ++ idx)
+            for(Rock rock: rocks)
+                rock.move();
     }
 
     /**
