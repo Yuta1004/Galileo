@@ -58,6 +58,14 @@ public class RockManager {
     }
 
     /**
+     * リセットする
+     */
+    public void reset(){
+        for(Rock rock: rocks)
+            rock.reset();
+    }
+
+    /**
      * Chart用データを返す
      *
      * @return XYChart.Series
