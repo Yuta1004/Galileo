@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -15,16 +16,41 @@ public class MainUIController implements Initializable {
     // UI部品
     @FXML
     private AnchorPane chartPane;
+    @FXML
+    private TextField widthF, widthT, heightF, heightT;
 
     // 描画用
     private ScatterChart chart;
+    private double widthFVal, widthTVal, heightFVal, heightTVal;
 
     /**
      * 初期化
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        // 初期化
         initChart(0, 1000, 0, 800);
+        widthFVal = heightFVal = 0;
+        widthTVal = 1000;
+        heightTVal = 800;
+
+        // UIイベント
+        widthF.textProperty().addListener((obs, oldText, newText) -> {
+            widthFVal = parseDouble(newText);
+            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+        });
+        widthT.textProperty().addListener((obs, oldText, newText) -> {
+            widthTVal = parseDouble(newText);
+            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+        });
+        heightF.textProperty().addListener((obs, oldText, newText) -> {
+            heightFVal = parseDouble(newText);
+            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+        });
+        heightT.textProperty().addListener((obs, oldText, newText) -> {
+            heightTVal = parseDouble(newText);
+            initChart(widthFVal, widthTVal, heightFVal, heightTVal);
+        });
     }
 
     /**
