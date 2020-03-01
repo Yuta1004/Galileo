@@ -102,9 +102,7 @@ public class MainUIController implements Initializable {
     /**
      * 散布図描画データ追加
      */
-    private void setData(double x, double y) {
-        XYChart.Series series = new XYChart.Series();
-        series.getData().add(new XYChart.Data(x, y));
+    private void setData(XYChart.Series series) {
         chart.getData().addAll(series);
     }
 
