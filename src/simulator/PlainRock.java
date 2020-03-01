@@ -1,5 +1,11 @@
 public class PlainRock extends Rock {
 
+    // 計算用変数
+    private double xf, xb;
+    private double yf, yb;
+    private double vxf, vxp, vxb;
+    private double vyf, vyp, vyb;
+
     /**
      * コンストラクタ
      *
