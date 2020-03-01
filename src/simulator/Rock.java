@@ -20,4 +20,22 @@ public class Rock {
         this.y = y;
     }
 
+    /**
+     * xを返す
+     *
+     * @return double x
+     */
+    public double getX() {
+        return x;
+    }
+
+    /**
+     * yを返す
+     *
+     * @return double x
+     */
+    public double getY(){
+        return y;
+    }
+
 }
