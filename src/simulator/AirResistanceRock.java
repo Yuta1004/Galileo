@@ -9,8 +9,8 @@ public class AirResistanceRock extends Rock {
     private double yf, yb;
     private double vxf, vxp, vxb;
     private double vyf, vyp, vyb;
-    private double rho_rock, rho_air;
-    private double cd, diameter, mass, area;
+    private final double rho_rock, rho_air;
+    private final double cd, diameter, mass, area;
 
     /**
      * コンストラクタ
@@ -22,17 +22,20 @@ public class AirResistanceRock extends Rock {
      * @param diameter 噴石の直径(m)
      */
     public AirResistanceRock(double x, double y, double v0, double theta, double diameter) {
-        // 初期化
         super(x, y, v0, theta);
         this.diameter = diameter;
+
+        // 定数初期化
         dt = 0.01;
         cd = 0.2;
         rho_air = 1.2;
         rho_rock = 2800;
-        vxp = v0*Math.cos(theta*PI/180.0);
-        vyp = v0*Math.sin(theta*PI/180.0);
         mass = rho_rock*(4.0/3.0)*PI*Math.pow(diameter/2.0, 3);
         area = PI*Math.pow(dm/2.0, 2);
+
+        // 計算用変数初期化
+        vxp = v0*Math.cos(theta*PI/180.0);
+        vyp = v0*Math.sin(theta*PI/180.0);
     }
 
     @Override
