@@ -39,7 +39,22 @@ public class AirResistanceRock extends Rock {
     }
 
     @Override
-    public void move() {}
+    public void move() {
+        double tmp = 0.5*cd*rho_air*area*Math.sqrt(Math.pow(vxp, 2)+Math.pow(vyp, 2));
+        if(moveCnt == 0) {
+            xf = x+vxp*dt;
+            yf = y+vyp*dt;
+            vxf = vxp-(tmp*vxp/mass*dt);
+            vyf = vyp-(tmp*vyp/mass+G)*dt;
+        } else {
+            xf = xb+vxp*2*dt;
+            yf = yb+vyp*2*dt;
+            vxf = vxb-(tmp*vxp/mass*2*dt);
+            vyf = vyb-(tmp*vyp/mass+G)*2*dt;
+        }
+        updateCalcData();
+        ++ moveCnt;
+    }
 
     /**
      * 計算用変数を更新する
