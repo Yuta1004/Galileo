@@ -7,6 +7,8 @@ import javafx.geometry.Rectangle2D;
 
 import java.io.IOException;
 
+import controller.MainUIController;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -23,6 +25,7 @@ public class Main extends Application {
 
             // Scene初期化
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainUI.fxml"));
+            loader.setController(new MainUIController());
             Scene scene = new Scene(loader.load(), width, height);
 
             // Stage初期化
