@@ -8,6 +8,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.animation.Timeline;
 import javafx.animation.Animation;
@@ -28,6 +29,8 @@ public class MainUIController implements Initializable {
     private Slider speed;
     @FXML
     private Label speedVal;
+    @FXML
+    private Button play, skip, skip10;
     @FXML
     private TextField widthF, widthT, heightF, heightT;
 
@@ -53,6 +56,15 @@ public class MainUIController implements Initializable {
         setData(rockManager.getChartData());
 
         // UIイベント
+        play.setOnAction(event -> initTimeLine());
+        skip.setOnAction(event -> {
+            rockManager.move(1);
+            setData(rockManager.getChartData());
+        });
+        skip10.setOnAction(event -> {
+            rockManager.move(10);
+            setData(rockManager.getChartData());
+        });
         speed.valueProperty().addListener((obs, oldVal, newVal) -> {
             updateSpeed = Math.round(oldVal.doubleValue()*10)/10.0;
             speedVal.setText(updateSpeed+"");
