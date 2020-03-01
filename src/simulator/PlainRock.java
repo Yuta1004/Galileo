@@ -1,6 +1,8 @@
 public class PlainRock extends Rock {
 
     // 計算用変数
+    private int moveCnt;
+    private double dt;
     private double xf, xb;
     private double yf, yb;
     private double vxf, vxp, vxb;
@@ -17,12 +19,27 @@ public class PlainRock extends Rock {
     public PlainRock(double x, double y, double v0, double theta) {
         // 初期化
         super(x, y, v0, theta);
+        dt = 0.01;
+        moveCnt = 0;
         vxp = v0*Math.cos(theta*PI/180.0);
         vyp = v0*Math.sin(theta*PI/180.0);
     }
 
     @Override
     public void move() {
+        // ステップ値計算
+        if(moveCnt == 0) {
+            xf = x+vxp*dt;
+            yf = y+vyp*dt;
+            vxf = vxp;
+            vyf = vyp-G*dt;
+        } else {
+            xf = xb+vxp*2*dt;
+            yf = yb+vyp*2*dt;
+            vxf = vxb;
+            vyf = vyb-G*2*dt;
+        }
+        updateCalcData();
     }
 
     /**
