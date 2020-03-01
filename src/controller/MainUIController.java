@@ -51,13 +51,17 @@ public class MainUIController implements Initializable {
         widthFVal = heightFVal = 0;
         widthTVal = 1000;
         heightTVal = 800;
+        initUI();
         initChart();
         rockManager = new RockManager();
-        for(int i = 10; i < 100; i += 10)
-            rockManager.addPlainRock(0, 0, 100, i);
         setData(rockManager.getChartData());
+    }
 
-        // UIイベント
+    /**
+     * UI初期化
+     */
+    private void initUI() {
+        // UIイベント<ボタン>
         init.setOnAction(event -> {
             if(tl != null)
                 tl.stop();
@@ -65,6 +69,8 @@ public class MainUIController implements Initializable {
             rockManager = new RockManager();
         });
         reset.setOnAction(event -> {
+            if(tl != null)
+                tl.stop();
             rockManager.reset();
             initChart();
             setData(rockManager.getChartData());
@@ -86,12 +92,16 @@ public class MainUIController implements Initializable {
             rockManager.move(30);
             setData(rockManager.getChartData());
         });
+
+        // UIイベント<スライダー>
         speed.valueProperty().addListener((obs, oldVal, newVal) -> {
             updateSpeed = Math.round(oldVal.doubleValue()*10)/10.0;
             speedVal.setText(updateSpeed+"");
             tl.stop();
             initTimeLine();
         });
+
+        // UIイベント<テキスト入力(1行)>
         widthF.textProperty().addListener((obs, oldText, newText) -> {
             widthFVal = parseDouble(newText);
             initChart();
