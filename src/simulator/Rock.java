@@ -1,9 +1,9 @@
-public class Rock {
+public abstract class Rock {
 
-    private double x, y;
-    private final double v0, theta;
-    private static double G = 9.8;
-    private static double PI = 3.141592653589793;
+    protected double x, y;
+    protected final double v0, theta;
+    public static double G = 9.8;
+    public static double PI = 3.141592653589793;
 
 
     /**
@@ -39,4 +39,8 @@ public class Rock {
         return y;
     }
 
+    /**
+     * シミュレート
+     */
+    public abstract void move();
 }
