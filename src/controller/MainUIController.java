@@ -53,6 +53,8 @@ public class MainUIController implements Initializable {
         heightTVal = 800;
         initChart();
         rockManager = new RockManager();
+        for(int i = 10; i < 100; i += 10)
+            rockManager.addPlainRock(0, 0, 100, i);
         setData(rockManager.getChartData());
 
         // UIイベント
@@ -60,6 +62,7 @@ public class MainUIController implements Initializable {
             if(tl != null)
                 tl.stop();
             initChart();
+            rockManager = new RockManager();
         });
         reset.setOnAction(event -> {
             rockManager.reset();
