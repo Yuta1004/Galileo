@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -58,5 +59,14 @@ public class MainUIController implements Initializable {
         AnchorPane.setBottomAnchor(chart, 0.0);
         chartPane.getChildren().clear();
         chartPane.getChildren().add(chart);
+    }
+
+    /**
+     * 散布図描画データ追加
+     */
+    private void setData(double x, double y) {
+        XYChart.Series series = new XYChart.Series();
+        series.getData().add(new XYChart.Data(x, y));
+        chart.getData().addAll(series);
     }
 }
