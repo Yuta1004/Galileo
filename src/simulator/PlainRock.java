@@ -16,6 +16,8 @@ public class PlainRock extends Rock {
      */
     public PlainRock(double x, double y, double v0, double theta) {
         super(x, y, v0, theta);
+        vxp = v0*Math.cos(theta*PI/180.0);
+        vyp = v0*Math.sin(theta*PI/180.0);
     }
 
     @Override
