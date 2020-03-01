@@ -76,6 +76,8 @@ public class MainUIController implements Initializable {
         speed.valueProperty().addListener((obs, oldVal, newVal) -> {
             updateSpeed = Math.round(oldVal.doubleValue()*10)/10.0;
             speedVal.setText(updateSpeed+"");
+            tl.stop();
+            initTimeLine();
         });
         widthF.textProperty().addListener((obs, oldText, newText) -> {
             widthFVal = parseDouble(newText);
@@ -138,7 +140,7 @@ public class MainUIController implements Initializable {
             return;
         tl = new Timeline(
                 new KeyFrame(
-                    Duration.seconds(0.5),
+                    new Duration(500/updateSpeed),
                     event -> {
                         rockManager.move(50);
                         setData(rockManager.getChartData());
