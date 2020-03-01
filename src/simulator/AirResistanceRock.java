@@ -38,5 +38,18 @@ public class AirResistanceRock extends Rock {
     @Override
     public void move() {}
 
+    /**
+     * 計算用変数を更新する
+     */
+    private void updateCalcData() {
+        xb = x;
+        yb = y;
+        vxb = vxp;
+        vyb = vyp;
+        x = xf;
+        y = yf;
+        vxp = vxf;
+        vyp = vyf;
+    }
 }
 
