@@ -53,7 +53,7 @@ public class RockManager {
      *
      * @return XYChart.Series
      */
-    public XYChart.Series getChartData(int idx) {
+    public XYChart.Series getChartData() {
         XYChart.Series series = new XYChart.Series();
         for(Rock rock: rocks)
             series.getData().add(new XYChart.Data(rock.getX(), rock.getY()));
