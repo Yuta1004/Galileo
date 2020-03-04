@@ -14,7 +14,7 @@ public class GenRockController implements Initializable {
     @FXML
     private Button done;
     @FXML
-    private TextField x, y, v0, theta, diameter;
+    private TextField xTf, yTf, v0Tf, thetaTf, diameterTf;
 
     // 状態管理
     private boolean inpOk;
@@ -34,10 +34,10 @@ public class GenRockController implements Initializable {
      * 入力検証
      */
     private void validateInput() {
-        inpOk = toDouble(x.getText()) != Double.MIN_VALUE
-             && toDouble(y.getText()) != Double.MIN_VALUE
-             && toDouble(v0.getText()) != Double.MIN_VALUE
-             && toDouble(theta.getText()) != Double.MIN_VALUE;
+        inpOk = toDouble(xTf.getText()) != Double.MIN_VALUE
+             && toDouble(yTf.getText()) != Double.MIN_VALUE
+             && toDouble(v0Tf.getText()) != Double.MIN_VALUE
+             && toDouble(thetaTf.getText()) != Double.MIN_VALUE;
     }
 
     /**

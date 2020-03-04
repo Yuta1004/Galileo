@@ -41,7 +41,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField prefWidth="70.0" text="0" fx:id="x" />
+                        <TextField prefWidth="70.0" text="0" fx:id="xTf" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1">
@@ -51,7 +51,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="y" prefWidth="70.0" text="0" />
+                        <TextField fx:id="yTf" prefWidth="70.0" text="0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.rowIndex="1">
@@ -61,7 +61,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="v0" prefWidth="70.0" text="100" />
+                        <TextField fx:id="v0Tf" prefWidth="70.0" text="100" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -71,7 +71,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="theta" prefWidth="70.0" text="60" />
+                        <TextField fx:id="thetaTf" prefWidth="70.0" text="60" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.rowIndex="2">
@@ -81,7 +81,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="diameter" prefWidth="70.0" text="1.2" />
+                        <TextField fx:id="diameterTf" prefWidth="70.0" text="1.2" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
