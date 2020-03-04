@@ -191,7 +191,7 @@ public class MainUIController implements Initializable {
      */
     private void addRock() {
         GenRockController controller = new GenRockController();
-        genStage("Test", "/fxml/GenRock.fxml", controller).showAndWait();
+        genStage("Gen Rock", "/fxml/GenRock.fxml", controller).showAndWait();
         if(controller.inputOK()) {
             double x = controller.x;
             double y = controller.y;
