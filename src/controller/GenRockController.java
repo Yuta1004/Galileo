@@ -46,6 +46,13 @@ public class GenRockController implements Initializable {
     }
 
     /**
+     * 空気抵抗チェックが有効か返す
+     */
+    public boolean enableAirRes() {
+        return enableAir.isSelected();
+    }
+
+    /**
      * 入力検証
      */
     private void validateInput() {
