@@ -131,7 +131,7 @@
                         <Font size="22.0" />
                      </font>
                   </Button>
-                  <Button disable="true" mnemonicParsing="false" prefWidth="150.0" text="Tmp1" GridPane.rowIndex="1">
+                  <Button fx:id="genRock" mnemonicParsing="false" prefWidth="150.0" text="Gen Rock" GridPane.rowIndex="1">
                      <font>
                         <Font size="22.0" />
                      </font>

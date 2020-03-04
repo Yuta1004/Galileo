@@ -35,7 +35,7 @@ public class MainUIController implements Initializable {
     @FXML
     private Label speedVal;
     @FXML
-    private Button play, skip, skip10, init, reset;
+    private Button play, skip, skip10, init, reset, genRock;
     @FXML
     private TextField widthF, widthT, heightF, heightT;
 
@@ -98,6 +98,9 @@ public class MainUIController implements Initializable {
         skip10.setOnAction(event -> {
             rockManager.move(30);
             setData(rockManager.getChartData());
+        });
+        genRock.setOnAction(event -> {
+            addRock();
         });
 
         // UIイベント<スライダー>
