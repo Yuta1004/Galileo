@@ -45,7 +45,8 @@ public class GenRockController implements Initializable {
         inpOk = (x = toDouble(xTf.getText())) != Double.MIN_VALUE
              && (y = toDouble(yTf.getText())) != Double.MIN_VALUE
              && (v0 = toDouble(v0Tf.getText())) != Double.MIN_VALUE
-             && (theta = toDouble(thetaTf.getText())) != Double.MIN_VALUE;
+             && (theta = toDouble(thetaTf.getText())) != Double.MIN_VALUE
+             && (!enableAir.isSelected() || (diameter = toDouble(diameterTf.getText())) != Double.MIN_VALUE);
     }
 
     /**
