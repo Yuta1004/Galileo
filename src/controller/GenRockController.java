@@ -18,6 +18,7 @@ public class GenRockController implements Initializable {
 
     // 状態管理
     private boolean inpOk;
+    public double x, y, v0, theta, diameter;
 
     /**
      * 初期化
@@ -34,10 +35,10 @@ public class GenRockController implements Initializable {
      * 入力検証
      */
     private void validateInput() {
-        inpOk = toDouble(xTf.getText()) != Double.MIN_VALUE
-             && toDouble(yTf.getText()) != Double.MIN_VALUE
-             && toDouble(v0Tf.getText()) != Double.MIN_VALUE
-             && toDouble(thetaTf.getText()) != Double.MIN_VALUE;
+        inpOk = (x = toDouble(xTf.getText())) != Double.MIN_VALUE
+             && (y = toDouble(yTf.getText())) != Double.MIN_VALUE
+             && (v0 = toDouble(v0Tf.getText())) != Double.MIN_VALUE
+             && (theta = toDouble(thetaTf.getText())) != Double.MIN_VALUE;
     }
 
     /**
