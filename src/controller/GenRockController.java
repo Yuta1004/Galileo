@@ -34,7 +34,7 @@ public class GenRockController implements Initializable {
         });
         done.setOnAction(event -> {
             validateInput();
-            System.out.println(inpOk);
+            done.getScene().getWindow().hide();
         });
     }
 
