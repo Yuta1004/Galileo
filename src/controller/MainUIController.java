@@ -64,8 +64,6 @@ public class MainUIController implements Initializable {
         initChart();
         rockManager = new RockManager();
         setData(rockManager.getChartData());
-
-        genStage("Test", "/fxml/GenRock.fxml", new GenRockController()).showAndWait();
     }
 
     /**
@@ -183,6 +181,26 @@ public class MainUIController implements Initializable {
      */
     private void setData(XYChart.Series series) {
         chart.getData().addAll(series);
+    }
+
+    /**
+     * 噴石追加ウィンドウを表示して処理を行う
+     */
+    private void addRock() {
+        GenRockController controller = new GenRockController();
+        genStage("Test", "/fxml/GenRock.fxml", controller).showAndWait();
+        if(controller.inputOK()) {
+            double x = controller.x;
+            double y = controller.y;
+            double v0 = controller.v0;
+            double theta = controller.theta;
+            double diameter = controller.diameter;
+            if(controller.enableAirRes())
+                rockManager.addAirResistanceRock(x, y, v0, theta, diameter);
+            else
+                rockManager.addPlainRock(x, y, v0, theta);
+            setData(rockManager.getChartData());
+        }
     }
 
     /**
