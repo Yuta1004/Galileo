@@ -39,7 +39,7 @@ public class MainUIController implements Initializable {
     private double updateSpeed;
     private double widthFVal, widthTVal, heightFVal, heightTVal;
     private RockManager rockManager;
-    private Timeline tl;
+    private Timeline tl = new Timeline();
 
     /**
      * 初期化
@@ -63,20 +63,18 @@ public class MainUIController implements Initializable {
     private void initUI() {
         // UIイベント<ボタン>
         init.setOnAction(event -> {
-            if(tl != null)
-                tl.stop();
+            tl.stop();
             initChart();
             rockManager = new RockManager();
         });
         reset.setOnAction(event -> {
-            if(tl != null)
-                tl.stop();
+            tl.stop();
             rockManager.reset();
             initChart();
             setData(rockManager.getChartData());
         });
         play.setOnAction(event -> {
-            if(tl != null && tl.getStatus().equals(Animation.Status.RUNNING)) {
+            if(tl.getStatus().equals(Animation.Status.RUNNING)) {
                 play.setText("▷");
                 tl.stop();
             } else {
@@ -154,7 +152,7 @@ public class MainUIController implements Initializable {
      * TimeLine初期化
      */
     private void initTimeLine() {
-        if(tl != null && tl.getStatus().equals(Animation.Status.RUNNING))
+        if(tl.getStatus().equals(Animation.Status.RUNNING))
             return;
         tl = new Timeline(
                 new KeyFrame(
