@@ -2,6 +2,8 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -10,6 +12,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.Modality;
 import javafx.animation.Timeline;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -17,6 +21,7 @@ import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.io.IOException;
 
 import simulator.RockManager;
 
@@ -41,12 +46,16 @@ public class MainUIController implements Initializable {
     private RockManager rockManager;
     private Timeline tl = new Timeline();
 
+    // その他管理用
+    private ResourceBundle resource;
+
     /**
      * 初期化
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         // 初期化
+        this.resource = resource;
         updateSpeed = 1.0;
         widthFVal = heightFVal = 0;
         widthTVal = 1000;
@@ -173,6 +182,35 @@ public class MainUIController implements Initializable {
     private void setData(XYChart.Series series) {
         chart.getData().addAll(series);
     }
+
+    /**
+     * FXMLファイルを元にStageを生成して返す
+     *
+     * @param title ウィンドウタイトル
+     * @param path FXMLファイルのパス
+     * @param controller UIController
+     */
+    private <T> Stage genStage(String title, String path, T controller) {
+        // FXML読み込み
+        Scene scene = null;
+        try {
+            FXMLLoader loader  = new FXMLLoader(getClass().getResource(path), resource);
+            if(controller != null)
+                loader.setController(controller);
+            scene = new Scene(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        // 設定
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle(title);
+        return stage;
+    }
+
 
     /**
      * String to Double
