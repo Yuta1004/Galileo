@@ -18,6 +18,7 @@ import javafx.animation.Timeline;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.util.Duration;
+import javafx.collections.ObservableList;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -61,7 +62,7 @@ public class MainUIController implements Initializable {
         widthTVal = 1000;
         heightTVal = 800;
         initUI();
-        initChart();
+        initChart(false);
         rockManager = new RockManager();
         setData(rockManager.getChartData());
     }
@@ -73,13 +74,13 @@ public class MainUIController implements Initializable {
         // UIイベント<ボタン>
         init.setOnAction(event -> {
             tl.stop();
-            initChart();
+            initChart(false);
             rockManager = new RockManager();
         });
         reset.setOnAction(event -> {
             tl.stop();
             rockManager.reset();
-            initChart();
+            initChart(false);
             setData(rockManager.getChartData());
         });
         play.setOnAction(event -> {
@@ -114,26 +115,26 @@ public class MainUIController implements Initializable {
         // UIイベント<テキスト入力(1行)>
         widthF.textProperty().addListener((obs, oldText, newText) -> {
             widthFVal = parseDouble(newText);
-            initChart();
+            initChart(true);
         });
         widthT.textProperty().addListener((obs, oldText, newText) -> {
             widthTVal = parseDouble(newText);
-            initChart();
+            initChart(true);
         });
         heightF.textProperty().addListener((obs, oldText, newText) -> {
             heightFVal = parseDouble(newText);
-            initChart();
+            initChart(true);
         });
         heightT.textProperty().addListener((obs, oldText, newText) -> {
             heightTVal = parseDouble(newText);
-            initChart();
+            initChart(true);
         });
     }
 
     /**
      * ScatterChart初期化
      */
-    private void initChart() {
+    private void initChart(boolean takeover) {
         // NumberAxis初期化
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
@@ -146,10 +147,17 @@ public class MainUIController implements Initializable {
         yAxis.setLowerBound(heightFVal);
         yAxis.setUpperBound(heightTVal);
 
+        // データ保存
+        ObservableList<XYChart.Data<Number, Number>> tmp = null;
+        if(takeover && chart != null)
+           tmp = chart.getData();
+
         // Chart設定
         chart = new ScatterChart<>(xAxis, yAxis);
         chart.setLegendVisible(false);
         chart.setAnimated(false);
+        if(takeover)
+            chart.setData(tmp);
 
         // 配置
         AnchorPane.setTopAnchor(chart, 0.0);
