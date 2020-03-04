@@ -140,10 +140,12 @@ public class MainUIController implements Initializable {
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Distance(m)");
         xAxis.setAutoRanging(false);
+        xAxis.setTickUnit((widthTVal-widthFVal)/20);
         xAxis.setLowerBound(widthFVal);
         xAxis.setUpperBound(widthTVal);
         yAxis.setLabel("Height(m)");
         yAxis.setAutoRanging(false);
+        yAxis.setTickUnit((heightTVal-heightFVal)/20);
         yAxis.setLowerBound(heightFVal);
         yAxis.setUpperBound(heightTVal);
 
