@@ -64,6 +64,8 @@ public class MainUIController implements Initializable {
         initChart();
         rockManager = new RockManager();
         setData(rockManager.getChartData());
+
+        genStage("Test", "/fxml/GenRock.fxml", new GenRockController()).showAndWait();
     }
 
     /**

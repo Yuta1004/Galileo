@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.CheckBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +14,8 @@ public class GenRockController implements Initializable {
     // UI
     @FXML
     private Button done;
+    @FXML
+    private CheckBox enableAir;
     @FXML
     private TextField xTf, yTf, v0Tf, thetaTf, diameterTf;
 
@@ -25,6 +28,10 @@ public class GenRockController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        enableAir.setOnAction(event -> {
+            diameterTf.setEditable(enableAir.isSelected());
+            diameterTf.setDisable(!enableAir.isSelected());
+        });
         done.setOnAction(event -> {
             validateInput();
             System.out.println(inpOk);
