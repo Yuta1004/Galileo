@@ -39,6 +39,13 @@ public class GenRockController implements Initializable {
     }
 
     /**
+     * 正当な入力が行われたか返す
+     */
+    public boolean inputOK() {
+        return inpOk;
+    }
+
+    /**
      * 入力検証
      */
     private void validateInput() {
