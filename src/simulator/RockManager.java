@@ -3,11 +3,13 @@ package simulator;
 import javafx.scene.chart.XYChart;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
+
+import lib.Clock;
 
 public class RockManager {
 
+    private Clock clock;
     private ArrayList<Rock> rocks;
     private Color[] colors = {
         Color.FORESTGREEN, Color.CORAL, Color.MAGENTA, Color.CRIMSON, Color.BLUE,
@@ -18,6 +20,7 @@ public class RockManager {
      * コンストラクタ
      */
     public RockManager() {
+        clock = new Clock(0, 0, 0);
         rocks = new ArrayList<Rock>();
     }
 
@@ -52,9 +55,11 @@ public class RockManager {
      * @param n ステップ数
      */
     public void move(int n) {
-        for(int idx = 0; idx < n; ++ idx)
+        for(int idx = 0; idx < n; ++ idx) {
+            clock.tick();
             for(Rock rock: rocks)
                 rock.move();
+        }
     }
 
     /**
@@ -79,5 +84,12 @@ public class RockManager {
             series.getData().add(data);
         }
         return series;
+    }
+
+    /**
+     * 時刻表示データを返す
+     */
+    public String getClock() {
+        return clock.toString();
     }
 }
