@@ -48,6 +48,7 @@ public class PlainRock extends Rock {
 
    @Override
     public void reset() {
+        moveCnt = 0;
         x = X;
         y = Y;
         xb = xf = 0;

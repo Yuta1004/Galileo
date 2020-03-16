@@ -59,6 +59,7 @@ public class AirResistanceRock extends Rock {
 
     @Override
     public void reset() {
+        moveCnt = 0;
         x = X;
         y = Y;
         xb = xf = 0;
