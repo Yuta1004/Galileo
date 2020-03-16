@@ -7,4 +7,14 @@ public class Clock {
         second = h*H + m*M + s*S;
     }
 
+    public void tick() {
+        tick(1);
+    }
+
+    public void tick(int t) {
+        second += t;
+        second = Math.min(86400, second);
+        if(second < 0)
+            second = 86399;
+    }
 }
