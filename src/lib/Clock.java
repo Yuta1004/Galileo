@@ -1,3 +1,5 @@
+package lib;
+
 public class Clock {
 
     private int second = 0;
