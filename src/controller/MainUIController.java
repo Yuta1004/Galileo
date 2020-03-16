@@ -108,8 +108,8 @@ public class MainUIController implements Initializable {
         speed.valueProperty().addListener((obs, oldVal, newVal) -> {
             updateSpeed = Math.round(oldVal.doubleValue()*10)/10.0;
             speedVal.setText("x"+updateSpeed);
-            tl.stop();
-            initTimeLine();
+            if(tl.getStatus().equals(Animation.Status.RUNNING))
+                initTimeLine();
         });
 
         // UIイベント<テキスト入力(1行)>
@@ -174,8 +174,7 @@ public class MainUIController implements Initializable {
      * TimeLine初期化
      */
     private void initTimeLine() {
-        if(tl.getStatus().equals(Animation.Status.RUNNING))
-            return;
+        tl.stop();
         tl = new Timeline(
                 new KeyFrame(
                     new Duration(500/updateSpeed),
