@@ -73,16 +73,18 @@ public class MainUIController implements Initializable {
     private void initUI() {
         // UIイベント<ボタン>
         init.setOnAction(event -> {
-            play.setText("▷");
             tl.stop();
             initChart(false);
+            play.setText("▷");
+            clock.setText(rockManager.getClock());
             rockManager = new RockManager();
         });
         reset.setOnAction(event -> {
-            play.setText("▷");
             tl.stop();
-            rockManager.reset();
             initChart(false);
+            rockManager.reset();
+            play.setText("▷");
+            clock.setText(rockManager.getClock());
             setData(rockManager.getChartData());
         });
         play.setOnAction(event -> {
@@ -97,10 +99,12 @@ public class MainUIController implements Initializable {
         skip.setOnAction(event -> {
             rockManager.move(10);
             setData(rockManager.getChartData());
+            clock.setText(rockManager.getClock());
         });
         skip10.setOnAction(event -> {
             rockManager.move(30);
             setData(rockManager.getChartData());
+            clock.setText(rockManager.getClock());
         });
         genRock.setOnAction(event -> {
             addRock();
