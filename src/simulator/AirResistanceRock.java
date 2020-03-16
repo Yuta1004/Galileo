@@ -27,7 +27,7 @@ public class AirResistanceRock extends Rock {
 
         // 定数初期化
         dt = 0.01;
-        cd = 0.2;
+        cd = diameter == 0.01 ? 0.4 : 0.2;
         rho_air = 1.2;
         rho_rock = 2800;
         mass = rho_rock*(4.0/3.0)*PI*Math.pow(diameter/2.0, 3);
