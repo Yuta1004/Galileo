@@ -181,9 +181,9 @@ public class MainUIController implements Initializable {
                 new KeyFrame(
                     new Duration(500/updateSpeed),
                     event -> {
-                        clock.setText(rockManager.getClock());
                         rockManager.move(10);
                         setData(rockManager.getChartData());
+                        clock.setText(rockManager.getClock());
                     }
                 )
             );
