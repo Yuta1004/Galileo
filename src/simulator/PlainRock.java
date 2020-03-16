@@ -30,6 +30,7 @@ public class PlainRock extends Rock {
     @Override
     public void move() {
         // ステップ値計算
+        if(moveCnt > 0 && y <= 0) return;
         if(moveCnt == 0) {
             xf = x+vxp*dt;
             yf = y+vyp*dt;
@@ -42,6 +43,7 @@ public class PlainRock extends Rock {
             vyf = vyb-G*2*dt;
         }
         updateCalcData();
+        ++ moveCnt;
     }
 
    @Override
