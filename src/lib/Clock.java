@@ -17,4 +17,8 @@ public class Clock {
         if(second < 0)
             second = 86399;
     }
+
+    public String toString() {
+        return String.format("%02d:%02d:%02d", second/H, second/M%M, second%M);
+    }
 }
