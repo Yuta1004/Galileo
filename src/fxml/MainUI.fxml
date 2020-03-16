@@ -41,7 +41,7 @@
                            </font>
                         </Label>
                         <Slider fx:id="speed" blockIncrement="0.1" majorTickUnit="1.0" max="4.0" min="0.1" minorTickCount="1" prefWidth="200.0" showTickMarks="true" snapToTicks="true" value="1.0" />
-                        <Label fx:id="speedVal" text="1.0">
+                        <Label fx:id="speedVal" text="x1.0">
                            <font>
                               <Font size="20.0" />
                            </font>

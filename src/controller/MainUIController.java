@@ -107,7 +107,7 @@ public class MainUIController implements Initializable {
         // UIイベント<スライダー>
         speed.valueProperty().addListener((obs, oldVal, newVal) -> {
             updateSpeed = Math.round(oldVal.doubleValue()*10)/10.0;
-            speedVal.setText(updateSpeed+"");
+            speedVal.setText("x"+updateSpeed);
             tl.stop();
             initTimeLine();
         });
