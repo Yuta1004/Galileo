@@ -6,6 +6,10 @@ public class Clock {
     public static final int H = 60*60, M = 60, S = 1;
 
     public Clock(int h, int m, int s) {
+        set(h, m, s);
+    }
+
+    public void set(int h, int m, int s) {
         second = h*H + m*M + s*S;
     }
 

@@ -65,7 +65,8 @@ public class RockManager {
     /**
      * リセットする
      */
-    public void reset(){
+    public void reset() {
+        clock.set(0, 0, 0);
         for(Rock rock: rocks)
             rock.reset();
     }
