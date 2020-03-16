@@ -34,7 +34,7 @@ public class MainUIController implements Initializable {
     @FXML
     private Slider speed;
     @FXML
-    private Label speedVal;
+    private Label speedVal, clock;
     @FXML
     private Button play, skip, skip10, init, reset, genRock;
     @FXML
@@ -181,6 +181,7 @@ public class MainUIController implements Initializable {
                 new KeyFrame(
                     new Duration(500/updateSpeed),
                     event -> {
+                        clock.setText(rockManager.getClock());
                         rockManager.move(10);
                         setData(rockManager.getChartData());
                     }
