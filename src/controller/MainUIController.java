@@ -73,11 +73,13 @@ public class MainUIController implements Initializable {
     private void initUI() {
         // UIイベント<ボタン>
         init.setOnAction(event -> {
+            play.setText("▷");
             tl.stop();
             initChart(false);
             rockManager = new RockManager();
         });
         reset.setOnAction(event -> {
+            play.setText("▷");
             tl.stop();
             rockManager.reset();
             initChart(false);
