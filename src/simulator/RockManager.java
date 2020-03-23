@@ -12,8 +12,8 @@ public class RockManager {
     public final Clock clock;
     private ArrayList<Rock> rocks;
     private Color[] colors = {
-        Color.AQUAMARINE, Color.FORESTGREEN, Color.CORAL, Color.CRIMSON, Color.BLUE,
-        Color.BROWN, Color.CHARTREUSE, Color.MAGENTA, Color.BLACK, Color.DARKORANGE
+        Color.BLUE, Color.CORNFLOWERBLUE, Color.DARKBLUE, Color.DODGERBLUE, Color.NAVY,
+        Color.BROWN, Color.CHOCOLATE, Color.DARKGOLDENROD, Color.FIREBRICK, Color.DARKORANGE
     };
 
     /**
