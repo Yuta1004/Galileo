@@ -36,7 +36,8 @@ public class MainUIController implements Initializable {
     @FXML
     private Label speedVal, clock;
     @FXML
-    private Button play, skip, skip10, init, reset, genRock;
+    private Button play, skip, skip10, init, reset, genRock,
+            HPlus, MPlus, HMinus, MMinus;
     @FXML
     private TextField widthF, widthT, heightF, heightT;
 
@@ -108,6 +109,22 @@ public class MainUIController implements Initializable {
         });
         genRock.setOnAction(event -> {
             addRock();
+        });
+        HPlus.setOnAction(event -> {
+            rockManager.clock.tick(60*60);
+            clock.setText(rockManager.clock+"");
+        });
+        HMinus.setOnAction(event -> {
+            rockManager.clock.tick(-60*60);
+            clock.setText(rockManager.clock+"");
+        });
+        MPlus.setOnAction(event -> {
+            rockManager.clock.tick(60);
+            clock.setText(rockManager.clock+"");
+        });
+        MMinus.setOnAction(event -> {
+            rockManager.clock.tick(-60);
+            clock.setText(rockManager.clock+"");
         });
 
         // UIイベント<スライダー>
