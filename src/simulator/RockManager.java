@@ -9,7 +9,7 @@ import lib.Clock;
 
 public class RockManager {
 
-    private Clock clock;
+    public final Clock clock;
     private ArrayList<Rock> rocks;
     private Color[] colors = {
         Color.FORESTGREEN, Color.CORAL, Color.MAGENTA, Color.CRIMSON, Color.BLUE,
@@ -85,12 +85,5 @@ public class RockManager {
             series.getData().add(data);
         }
         return series;
-    }
-
-    /**
-     * 時刻表示データを返す
-     */
-    public String getClock() {
-        return clock.toString();
     }
 }

@@ -76,7 +76,7 @@ public class MainUIController implements Initializable {
             tl.stop();
             initChart(false);
             play.setText("▷");
-            clock.setText(rockManager.getClock());
+            clock.setText(rockManager.clock+"");
             rockManager = new RockManager();
         });
         reset.setOnAction(event -> {
@@ -84,7 +84,7 @@ public class MainUIController implements Initializable {
             initChart(false);
             rockManager.reset();
             play.setText("▷");
-            clock.setText(rockManager.getClock());
+            clock.setText(rockManager.clock+"");
             setData(rockManager.getChartData());
         });
         play.setOnAction(event -> {
@@ -99,12 +99,12 @@ public class MainUIController implements Initializable {
         skip.setOnAction(event -> {
             rockManager.move(10);
             setData(rockManager.getChartData());
-            clock.setText(rockManager.getClock());
+            clock.setText(rockManager.clock+"");
         });
         skip10.setOnAction(event -> {
             rockManager.move(30);
             setData(rockManager.getChartData());
-            clock.setText(rockManager.getClock());
+            clock.setText(rockManager.clock+"");
         });
         genRock.setOnAction(event -> {
             addRock();
@@ -187,7 +187,7 @@ public class MainUIController implements Initializable {
                     event -> {
                         rockManager.move(10);
                         setData(rockManager.getChartData());
-                        clock.setText(rockManager.getClock());
+                        clock.setText(rockManager.clock+"");
                     }
                 )
             );
