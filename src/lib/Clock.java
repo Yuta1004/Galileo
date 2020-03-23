@@ -19,9 +19,10 @@ public class Clock {
 
     public void tick(int t) {
         second += t;
-        second = Math.min(86400, second);
+        if(second >= 86400)
+            second %= 86400;
         if(second < 0)
-            second = 86399;
+            second = 86400-Math.abs(second)%86400;
     }
 
     public String toString() {
