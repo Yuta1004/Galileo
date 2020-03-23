@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -94,11 +95,21 @@
             </VBox>
             <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <Label fx:id="clock" text="00:00:00">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Button fx:id="HPlus" mnemonicParsing="false" text="H+" />
+                        <Button fx:id="MPlus" mnemonicParsing="false" text="M+" />
+                        <Pane prefWidth="10.0" />
+                        <Label fx:id="clock" text="00:00:00">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Pane prefWidth="10.0" />
+                        <Button fx:id="HMinus" mnemonicParsing="false" text="H-" />
+                        <Button fx:id="MMinus" mnemonicParsing="false" text="M-" />
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER" spacing="40.0">
                      <children>
                         <Button fx:id="play" mnemonicParsing="false" text="▷">
