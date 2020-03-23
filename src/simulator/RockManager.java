@@ -12,8 +12,8 @@ public class RockManager {
     public final Clock clock;
     private ArrayList<Rock> rocks;
     private Color[] colors = {
-        Color.FORESTGREEN, Color.CORAL, Color.MAGENTA, Color.CRIMSON, Color.BLUE,
-        Color.BROWN, Color.CHARTREUSE, Color.AQUAMARINE, Color.BLACK, Color.DARKORANGE
+        Color.AQUAMARINE, Color.FORESTGREEN, Color.CORAL, Color.CRIMSON, Color.BLUE,
+        Color.BROWN, Color.CHARTREUSE, Color.MAGENTA, Color.BLACK, Color.DARKORANGE
     };
 
     /**
@@ -80,8 +80,9 @@ public class RockManager {
         XYChart.Series series = new XYChart.Series();
         for(int idx = 0; idx < rocks.size(); ++ idx) {
             Rock rock = rocks.get(idx);
+            int colorVal = rock instanceof PlainRock ? 0 : 5;
             XYChart.Data data = new XYChart.Data(rock.getX(), rock.getY());
-            data.setNode(new Circle(3, colors[idx%10]));
+            data.setNode(new Circle(3, colors[idx%5+colorVal]));
             series.getData().add(data);
         }
         return series;
