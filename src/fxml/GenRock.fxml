@@ -35,7 +35,7 @@
                <children>
                   <HBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <Label text="X (m)">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="100.0" text="X (m) ">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -45,7 +45,7 @@
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1">
                      <children>
-                        <Label text="Y (m)">
+                        <Label alignment="CENTER" prefWidth="100.0" text="Y (m)">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -55,7 +55,7 @@
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.rowIndex="1">
                      <children>
-                        <Label text="V0 (?) ">
+                        <Label alignment="CENTER" prefWidth="100.0" text="V0 (m/s) ">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -65,7 +65,7 @@
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Theta">
+                        <Label alignment="CENTER" prefWidth="100.0" text="Theta(°)">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -75,7 +75,7 @@
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.rowIndex="2">
                      <children>
-                        <Label text="Dia (m)">
+                        <Label alignment="CENTER" prefWidth="100.0" text="Dia (m)">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -85,7 +85,7 @@
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Label text="Air Res">
+                        <Label alignment="CENTER" prefWidth="100.0" text="Air Res">
                            <font>
                               <Font size="22.0" />
                            </font>
