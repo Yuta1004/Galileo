@@ -21,11 +21,17 @@
   <children>
       <MenuBar>
         <menus>
-          <Menu mnemonicParsing="false" text="Null">
+          <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Null" />
+              <MenuItem mnemonicParsing="false" text="Load" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Others">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Credit" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
     <AnchorPane fx:id="chartPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />
@@ -156,7 +162,7 @@
                         <Font size="22.0" />
                      </font>
                   </Button>
-                  <Button disable="true" mnemonicParsing="false" prefWidth="150.0" text="Tmp2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button disable="true" mnemonicParsing="false" prefWidth="150.0" text="Tmp2" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="22.0" />
                      </font>
