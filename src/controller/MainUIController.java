@@ -220,6 +220,23 @@ public class MainUIController implements Initializable {
     }
 
     /**
+     * グラフ表示のスケーリングを行う
+     *
+     * @param rateX X方向の拡大率
+     * @param rateY Y方向の拡大率
+     */
+    private void setChartScale(double rateX, double rateY) {
+        ObservableList<XYChart.Series<Number, Number>> series = chart.getData();
+        for(XYChart.Series s: series) {
+            ObservableList<XYChart.Data<Number, Number>> data = s.getData();
+            for(XYChart.Data d: data) {
+                d.getNode().setScaleX(rateX);
+                d.getNode().setScaleY(rateY);
+            }
+        }
+    }
+
+    /**
      * 噴石追加ウィンドウを表示して処理を行う
      */
     private void addRock() {
