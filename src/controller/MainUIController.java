@@ -172,6 +172,11 @@ public class MainUIController implements Initializable {
         yAxis.setLowerBound(heightFVal);
         yAxis.setUpperBound(heightTVal);
 
+        // 拡大率計算
+        double scaleX = 1000.0/(widthTVal-widthFVal);
+        double scaleY = 800.0/(heightTVal-heightFVal);
+        setChartScale(scaleX, scaleY);
+
         // データ保存
         ObservableList<XYChart.Data<Number, Number>> tmp = null;
         if(takeover && chart != null)
@@ -226,6 +231,7 @@ public class MainUIController implements Initializable {
      * @param rateY Y方向の拡大率
      */
     private void setChartScale(double rateX, double rateY) {
+        if(chart == null) return;
         ObservableList<XYChart.Series<Number, Number>> series = chart.getData();
         for(XYChart.Series s: series) {
             ObservableList<XYChart.Data<Number, Number>> data = s.getData();
