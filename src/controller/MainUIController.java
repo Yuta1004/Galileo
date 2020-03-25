@@ -60,8 +60,8 @@ public class MainUIController implements Initializable {
         this.resource = resource;
         updateSpeed = 1.0;
         widthFVal = heightFVal = 0;
-        widthTVal = 1000;
-        heightTVal = 800;
+        widthTVal = 500;
+        heightTVal = 500;
         initUI();
         initChart(false);
         rockManager = new RockManager();
@@ -173,8 +173,8 @@ public class MainUIController implements Initializable {
         yAxis.setUpperBound(heightTVal);
 
         // 拡大率計算
-        double scaleX = 1000.0/(widthTVal-widthFVal);
-        double scaleY = 800.0/(heightTVal-heightFVal);
+        double scaleX = 500.0/(widthTVal-widthFVal);
+        double scaleY = 500.0/(heightTVal-heightFVal);
         setChartScale(scaleX, scaleY);
 
         // データ保存
