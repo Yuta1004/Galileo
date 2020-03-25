@@ -221,7 +221,15 @@ public class MainUIController implements Initializable {
      * 散布図描画データ追加
      */
     private void setData(XYChart.Series series) {
+        double scaleX = 500.0/(widthTVal-widthFVal);
+        double scaleY = 500.0/(heightTVal-heightFVal);
+        ObservableList<XYChart.Data<Number, Number>> data = series.getData();
+        for(XYChart.Data d: data) {
+            d.getNode().setScaleX(scaleX);
+            d.getNode().setScaleY(scaleY);
+        }
         chart.getData().addAll(series);
+        setChartScale(500.0/(widthTVal-widthFVal), 500.0/(heightTVal-heightFVal));
     }
 
     /**
