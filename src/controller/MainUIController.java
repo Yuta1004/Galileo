@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
@@ -37,9 +38,11 @@ public class MainUIController implements Initializable {
     private Label speedVal, clock;
     @FXML
     private Button play, skip, skip10, init, reset, genRock,
-            HPlus, MPlus, HMinus, MMinus;
+                   HPlus, MPlus, HMinus, MMinus;
     @FXML
     private TextField widthF, widthT, heightF, heightT;
+    @FXML
+    private MenuItem openLog;
 
     // 描画用
     private ScatterChart chart;
@@ -125,6 +128,12 @@ public class MainUIController implements Initializable {
         MMinus.setOnAction(event -> {
             rockManager.clock.tick(-60);
             clock.setText(rockManager.clock+"");
+        });
+
+        // UIイベント<メニュー>
+        openLog.setOnAction(event -> {
+            LogViewController controller = new LogViewController();
+            genStage("Log", "/fxml/LogView.fxml", controller).show();
         });
 
         // UIイベント<スライダー>
@@ -255,7 +264,9 @@ public class MainUIController implements Initializable {
      */
     private void addRock() {
         GenRockController controller = new GenRockController();
-        genStage("Gen Rock", "/fxml/GenRock.fxml", controller).showAndWait();
+        Stage stage = genStage("Gen Rock", "/fxml/GenRock.fxml", controller);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
         if(controller.inputOK()) {
             double x = controller.x;
             double y = controller.y;
@@ -292,7 +303,6 @@ public class MainUIController implements Initializable {
 
         // 設定
         Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.setTitle(title);
         return stage;
