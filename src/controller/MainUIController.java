@@ -139,7 +139,9 @@ public class MainUIController implements Initializable {
 
         // UIイベント<メニュー>
         openLog.setOnAction(event -> {
-            genStage("Log", "/fxml/LogView.fxml", logController).show();
+            Stage stage = genStage("Log", "/fxml/LogView.fxml", logController);
+            stage.setAlwaysOnTop(true);
+            stage.show();
         });
 
         // UIイベント<スライダー>
