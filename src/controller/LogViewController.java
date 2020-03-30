@@ -2,7 +2,9 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 import javafx.scene.control.ListView;
+import javafx.scene.control.CheckBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,6 +18,8 @@ public class LogViewController implements Initializable {
     private ObservableList<String> logData;
 
     // UI部品
+    @FXML
+    private CheckBox showAlwaysTop;
     @FXML
     private ListView<String> logList;
 
@@ -36,6 +40,12 @@ public class LogViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         logList.setItems(logData);
+        showAlwaysTop.setOnAction(event -> {
+            Stage stage = (Stage)showAlwaysTop.getScene().getWindow();
+            stage.setAlwaysOnTop(
+                showAlwaysTop.isSelected()
+            );
+        });
     }
 
     /**
