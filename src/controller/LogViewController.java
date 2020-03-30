@@ -29,8 +29,20 @@ public class LogViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resource) {
         // ログ表示初期化
         logCnt = 0;
-        logData = FXCollections.observableArrayList();
+        logData = FXCollections.observableArrayList(
+            genLogStr("Start logging..."),
+            genLogStr("Touch !!!")
+        );
         logList.setItems(logData);
+    }
+
+    /**
+     * ログ表示用にフォーマットされたStringを返す
+     *
+     * @param msg 表示するメッセージ
+     */
+    private String genLogStr(String msg) {
+        return (logCnt++) + ": " + msg + "\n";
     }
 
 }
