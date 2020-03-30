@@ -52,6 +52,7 @@ public class MainUIController implements Initializable {
     private Timeline tl = new Timeline();
 
     // その他管理用
+    private LogViewController logController;
     private ResourceBundle resource;
 
     /**
@@ -61,6 +62,7 @@ public class MainUIController implements Initializable {
     public void initialize(URL location, ResourceBundle resource) {
         // 初期化
         this.resource = resource;
+        this.logController = new LogViewController();
         updateSpeed = 1.0;
         widthFVal = heightFVal = 0;
         widthTVal = 500;
@@ -132,8 +134,7 @@ public class MainUIController implements Initializable {
 
         // UIイベント<メニュー>
         openLog.setOnAction(event -> {
-            LogViewController controller = new LogViewController();
-            genStage("Log", "/fxml/LogView.fxml", controller).show();
+            genStage("Log", "/fxml/LogView.fxml", logController).show();
         });
 
         // UIイベント<スライダー>
