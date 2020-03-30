@@ -37,6 +37,16 @@ public class LogViewController implements Initializable {
     }
 
     /**
+     * ログ追加
+     *
+     * @param msg ログデータ
+     */
+    public void addLogMsg(String msg) {
+        logData.add(genLogStr(msg));
+        logList.setItems(logData);
+    }
+
+    /**
      * ログ表示用にフォーマットされたStringを返す
      *
      * @param msg 表示するメッセージ
