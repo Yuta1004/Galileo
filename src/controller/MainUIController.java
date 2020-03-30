@@ -84,6 +84,7 @@ public class MainUIController implements Initializable {
             play.setText("▷");
             clock.setText(rockManager.clock+"");
             rockManager = new RockManager();
+            logController.addLogMsg("Initialize simulation");
         });
         reset.setOnAction(event -> {
             tl.stop();
@@ -92,14 +93,17 @@ public class MainUIController implements Initializable {
             play.setText("▷");
             clock.setText(rockManager.clock+"");
             setData(rockManager.getChartData());
+            logController.addLogMsg("Reset simulation");
         });
         play.setOnAction(event -> {
             if(tl.getStatus().equals(Animation.Status.RUNNING)) {
                 play.setText("▷");
                 tl.stop();
+                logController.addLogMsg("Stop simulation");
             } else {
                 play.setText("□");
                 initTimeLine();
+                logController.addLogMsg("Start simulation");
             }
         });
         skip.setOnAction(event -> {
@@ -114,6 +118,7 @@ public class MainUIController implements Initializable {
         });
         genRock.setOnAction(event -> {
             addRock();
+            logController.addLogMsg("Add Rock");
         });
         HPlus.setOnAction(event -> {
             rockManager.clock.tick(60*60);
