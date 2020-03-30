@@ -20,6 +20,14 @@ public class LogViewController implements Initializable {
     private ListView<String> logList;
 
     /**
+     * LogViewControllerのコンストラクタ
+     */
+    public LogViewController() {
+        logCnt = 0;
+        logData = FXCollections.observableArrayList(genLogStr("Start logging..."));
+    }
+
+    /**
      * ウィンドウ初期化
      *
      * @param location URL
@@ -27,9 +35,6 @@ public class LogViewController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
-        // ログ表示初期化
-        logCnt = 0;
-        logData = FXCollections.observableArrayList(genLogStr("Start logging..."));
         logList.setItems(logData);
     }
 
@@ -40,7 +45,8 @@ public class LogViewController implements Initializable {
      */
     public void addLogMsg(String msg) {
         logData.add(genLogStr(msg));
-        logList.setItems(logData);
+        if(logList != null)
+            logList.setItems(logData);
     }
 
     /**
