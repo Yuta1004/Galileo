@@ -79,10 +79,15 @@ public class RockManager {
     public XYChart.Series getChartData() {
         XYChart.Series series = new XYChart.Series();
         for(int idx = 0; idx < rocks.size(); ++ idx) {
+            // 描画属性決定
             Rock rock = rocks.get(idx);
-            int colorVal = rock instanceof PlainRock ? 0 : 5;
+            double sizeRate = 1.0; int colorVal = 0;
+            if(rock instanceof AirResistanceRock) {
+                sizeRate = ((AirResistanceRock)rock).diameter;
+            }
+            // 描画データ追加
             XYChart.Data data = new XYChart.Data(rock.getX(), rock.getY());
-            data.setNode(new Circle(3, colors[idx%5+colorVal]));
+            data.setNode(new Circle(sizeRate, colors[idx%5+colorVal]));
             series.getData().add(data);
         }
         return series;
