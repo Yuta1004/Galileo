@@ -20,7 +20,7 @@ public class RockManager {
      * コンストラクタ
      */
     public RockManager() {
-        clock = new Clock(0, 0, 0);
+        clock = new Clock(0, 0, 0, 0);
         rocks = new ArrayList<Rock>();
     }
 
@@ -66,7 +66,7 @@ public class RockManager {
      * リセットする
      */
     public void reset() {
-        clock.set(0, 0, 0);
+        clock.set(0, 0, 0, 0);
         for(Rock rock: rocks)
             rock.reset();
     }
