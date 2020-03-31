@@ -22,7 +22,7 @@ public class Clock {
     public void tick(int t) {
         // 加算
         msecond += t;
-        if(msecond % 1000 == 0) {
+        if(Math.abs(msecond) >= 1000) {
             second += msecond/1000;
             msecond %= 1000;
         }
