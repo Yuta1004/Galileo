@@ -121,19 +121,19 @@ public class MainUIController implements Initializable {
             logController.addLogMsg("Add Rock");
         });
         HPlus.setOnAction(event -> {
-            rockManager.clock.tick(60*60);
+            rockManager.clock.tick(60*60*1000);
             clock.setText(rockManager.clock+"");
         });
         HMinus.setOnAction(event -> {
-            rockManager.clock.tick(-60*60);
+            rockManager.clock.tick(-60*60*1000);
             clock.setText(rockManager.clock+"");
         });
         MPlus.setOnAction(event -> {
-            rockManager.clock.tick(60);
+            rockManager.clock.tick(60*1000);
             clock.setText(rockManager.clock+"");
         });
         MMinus.setOnAction(event -> {
-            rockManager.clock.tick(-60);
+            rockManager.clock.tick(-60*1000);
             clock.setText(rockManager.clock+"");
         });
 
