@@ -56,7 +56,7 @@ public class RockManager {
      */
     public void move(int n) {
         for(int idx = 0; idx < n; ++ idx) {
-            clock.tick();
+            clock.tick(10);  // 0.01秒単位
             for(Rock rock: rocks)
                 rock.move();
         }
