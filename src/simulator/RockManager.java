@@ -81,9 +81,10 @@ public class RockManager {
         for(int idx = 0; idx < rocks.size(); ++ idx) {
             // 描画属性決定
             Rock rock = rocks.get(idx);
-            double sizeRate = 1.0; int colorVal = 0;
+            double sizeRate = 3.0; int colorVal = 0;
             if(rock instanceof AirResistanceRock) {
                 sizeRate = ((AirResistanceRock)rock).diameter*1.5;
+                colorVal = 5;
             }
             // 描画データ追加
             XYChart.Data data = new XYChart.Data(rock.getX(), rock.getY());
