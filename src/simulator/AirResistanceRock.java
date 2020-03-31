@@ -10,7 +10,7 @@ public class AirResistanceRock extends Rock {
     private double vxf, vxp, vxb;
     private double vyf, vyp, vyb;
     private final double rho_rock, rho_air;
-    private final double cd, diameter, mass, area;
+    public final double cd, diameter, mass, area;
 
     /**
      * コンストラクタ
