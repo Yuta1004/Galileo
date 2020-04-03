@@ -6,6 +6,10 @@ import javafx.stage.Screen;
 import javafx.geometry.Rectangle2D;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.net.URL;
+import java.net.URLClassLoader;
 
 import controller.MainUIController;
 
@@ -23,8 +27,14 @@ public class Main extends Application {
             int width = (int)Math.min(1280, d.getWidth());
             int height = (int)Math.min(800, d.getHeight());
 
+            // Property
+            URL propURLs[] = { getClass().getResource("/fxml/locale/") };
+            URLClassLoader urlLoader = new URLClassLoader(propURLs);
+
             // Scene初期化
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainUI.fxml"));
+            Locale locale = Locale.getDefault();
+            ResourceBundle resource = ResourceBundle.getBundle("locale", locale, urlLoader);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainUI.fxml"), resource);
             loader.setController(new MainUIController());
             Scene scene = new Scene(loader.load(), width, height);
 
