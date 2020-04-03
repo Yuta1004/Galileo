@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" spacing="40.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -33,59 +33,84 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <HBox alignment="CENTER" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="100.0" text="X (m) ">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="120.0" text="X">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
                         <TextField prefWidth="70.0" text="0" fx:id="xTf" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="m">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1">
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefWidth="100.0" text="Y (m)">
+                        <Label alignment="CENTER" prefWidth="120.0" text="Y">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
                         <TextField fx:id="yTf" prefWidth="70.0" text="0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="m">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" spacing="10.0" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefWidth="100.0" text="V0 (m/s) ">
+                        <Label alignment="CENTER" prefWidth="120.0" text="V0 ">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
                         <TextField fx:id="v0Tf" prefWidth="70.0" text="100" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <Label alignment="CENTER" prefWidth="100.0" text="Theta(°)">
+                        <Label alignment="CENTER" text="m/s">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="thetaTf" prefWidth="70.0" text="60" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" spacing="10.0" GridPane.rowIndex="2">
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefWidth="100.0" text="Dia (m)">
+                        <Label alignment="CENTER" prefWidth="120.0" text="Theta">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="thetaTf" prefWidth="70.0" text="0" />
+                        <Label alignment="CENTER" text="°">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label alignment="CENTER" prefWidth="120.0" text="Dia (m)">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
                         <TextField fx:id="diameterTf" prefWidth="70.0" text="1.2" />
+                        <Label alignment="CENTER" text="m">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" prefWidth="100.0" text="Air Res">
+                        <Label alignment="CENTER" prefWidth="120.0" text="Air Res">
                            <font>
                               <Font size="22.0" />
                            </font>
