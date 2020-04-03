@@ -43,7 +43,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" spacing="20.0">
                      <children>
-                        <Label text="%Speed">
+                        <Label prefWidth="120.0" text="%Speed">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -58,7 +58,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="20.0">
                      <children>
-                        <Label text="%Width">
+                        <Label prefWidth="120.0" text="%Width">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -79,7 +79,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="20.0">
                      <children>
-                        <Label text="%Height">
+                        <Label prefWidth="120.0" text="%Height">
                            <font>
                               <Font size="25.0" />
                            </font>
