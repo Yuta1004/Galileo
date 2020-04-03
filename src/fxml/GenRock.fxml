@@ -17,7 +17,7 @@
    <children>
       <VBox alignment="TOP_CENTER" spacing="40.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label text="Generate Rock">
+            <Label text="%GenRock">
                <font>
                   <Font name="Monaco" size="45.0" />
                </font>
@@ -65,7 +65,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefWidth="120.0" text="V0 ">
+                        <Label alignment="CENTER" prefWidth="120.0" text="%V0">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -80,7 +80,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefWidth="120.0" text="Theta">
+                        <Label alignment="CENTER" prefWidth="120.0" text="%Theta">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -95,7 +95,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" prefWidth="120.0" text="Dia (m)">
+                        <Label alignment="CENTER" prefWidth="120.0" text="%Diameter">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -110,12 +110,12 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" prefWidth="120.0" text="Air Res">
+                        <Label alignment="CENTER" prefWidth="120.0" text="%AirRes">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <CheckBox fx:id="enableAir" mnemonicParsing="false" selected="true" text="Enable" />
+                        <CheckBox fx:id="enableAir" mnemonicParsing="false" selected="true" text="%Enable" />
                      </children>
                   </HBox>
                </children>
