@@ -30,7 +30,7 @@
             <Menu mnemonicParsing="false" text="%Others">
                <items>
                   <MenuItem fx:id="openLog" mnemonicParsing="false" text="%ViewLog" />
-                  <MenuItem mnemonicParsing="false" text="%Credit" />
+                  <MenuItem fx:id="openCredit" mnemonicParsing="false" text="%Credit" />
                </items>
             </Menu>
         </menus>

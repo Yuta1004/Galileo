@@ -41,7 +41,7 @@ public class MainUIController implements Initializable {
     @FXML
     private TextField widthF, widthT, heightF, heightT;
     @FXML
-    private MenuItem openLog;
+    private MenuItem openLog, openCredit;
 
     // 描画用
     private ScatterChart chart;
@@ -125,6 +125,9 @@ public class MainUIController implements Initializable {
             Stage stage = genStage("Log", "/fxml/LogView.fxml", logController);
             stage.setAlwaysOnTop(true);
             stage.show();
+        });
+        openCredit.setOnAction(event -> {
+            genStage("Credit", "/fxml/Credit.fxml", null).show();
         });
 
         // UIイベント<スライダー>
