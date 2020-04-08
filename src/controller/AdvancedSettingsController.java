@@ -23,6 +23,11 @@ public class AdvancedSettingsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        // 初期化
+        rockMagValue.setValue(Settings.RockMagnification);
+        rockMagValueV.setText("x "+Settings.RockMagnification);
+        viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
+
         // 噴石拡大表示
         rockMagValue.valueProperty().addListener((obs, oldVal, newVal) -> {
             double val = Math.round(newVal.doubleValue()*10)/10.0;
