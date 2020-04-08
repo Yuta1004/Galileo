@@ -42,7 +42,12 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Slider fx:id="rockMagValue" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="1" prefWidth="150.0" showTickLabels="true" showTickMarks="true" value="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0" />
+                              <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label fx:id="rockMagValueV" text="x 1.0" />
+                                    <Slider fx:id="rockMagValue" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="1" prefWidth="150.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
                         <AnchorPane GridPane.rowIndex="1">
