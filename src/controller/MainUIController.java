@@ -252,6 +252,10 @@ public class MainUIController implements Initializable {
      */
     private void setChartScale(XYChart.Series series, double rateX, double rateY) {
         if(chart == null) return;
+        if(Settings.ViewRatioNormalize) {    // 表示比正規化
+            rateX = (rateX+rateY)/2.0;
+            rateY = rateX;
+        }
         ObservableList<XYChart.Data<Number, Number>> data = series.getData();
         for(XYChart.Data d: data) {
             d.getNode().setScaleX(rateX*Settings.RockMagnification);
