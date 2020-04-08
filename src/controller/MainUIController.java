@@ -120,7 +120,9 @@ public class MainUIController implements Initializable {
             logController.addLogMsg("Add Rock");
         });
         openSettings.setOnAction(event -> {
-            genStage("AdvancedSettings", "/fxml/AdvancedSettings.fxml", null).showAndWait();
+            AdvancedSettingsController controller = new AdvancedSettingsController();
+            Stage stage = genStage("AdvancedSettings", "/fxml/AdvancedSettings.fxml", controller);
+            stage.showAndWait();
         });
 
         // UIイベント<メニュー>
