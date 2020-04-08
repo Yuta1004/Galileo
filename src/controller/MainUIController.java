@@ -25,6 +25,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.io.IOException;
 
+import db.Settings;
 import simulator.RockManager;
 
 public class MainUIController implements Initializable {
@@ -250,8 +251,8 @@ public class MainUIController implements Initializable {
         if(chart == null) return;
         ObservableList<XYChart.Data<Number, Number>> data = series.getData();
         for(XYChart.Data d: data) {
-            d.getNode().setScaleX(rateX);
-            d.getNode().setScaleY(rateY);
+            d.getNode().setScaleX(rateX*Settings.RockMagnification);
+            d.getNode().setScaleY(rateY*Settings.RockMagnification);
         }
     }
 
