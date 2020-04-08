@@ -237,7 +237,6 @@ public class MainUIController implements Initializable {
             d.getNode().setScaleY(scaleY);
         }
         chart.getData().addAll(series);
-        setChartScale(500.0/(widthTVal-widthFVal), 500.0/(heightTVal-heightFVal));
     }
 
     /**
