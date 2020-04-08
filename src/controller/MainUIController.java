@@ -180,10 +180,14 @@ public class MainUIController implements Initializable {
         yAxis.setLowerBound(heightFVal);
         yAxis.setUpperBound(heightTVal);
 
-        // 拡大率計算
+        // 拡大率セット
         double scaleX = 500.0/(widthTVal-widthFVal);
         double scaleY = 500.0/(heightTVal-heightFVal);
-        setChartScale(scaleX, scaleY);
+        if(chart != null) {
+            ObservableList<XYChart.Series<Number, Number>> series = chart.getData();
+            for(XYChart.Series s: series)
+                setChartScale(s, scaleX, scaleY);
+        }
 
         // データ保存
         ObservableList<XYChart.Data<Number, Number>> tmp = null;
@@ -231,29 +235,23 @@ public class MainUIController implements Initializable {
     private void setData(XYChart.Series series) {
         double scaleX = 500.0/(widthTVal-widthFVal);
         double scaleY = 500.0/(heightTVal-heightFVal);
-        ObservableList<XYChart.Data<Number, Number>> data = series.getData();
-        for(XYChart.Data d: data) {
-            d.getNode().setScaleX(scaleX);
-            d.getNode().setScaleY(scaleY);
-        }
+        setChartScale(series, scaleX, scaleY);
         chart.getData().addAll(series);
     }
 
     /**
      * グラフ表示のスケーリングを行う
      *
+     * @param series スケーリング対象となるデータ群
      * @param rateX X方向の拡大率
      * @param rateY Y方向の拡大率
      */
-    private void setChartScale(double rateX, double rateY) {
+    private void setChartScale(XYChart.Series series, double rateX, double rateY) {
         if(chart == null) return;
-        ObservableList<XYChart.Series<Number, Number>> series = chart.getData();
-        for(XYChart.Series s: series) {
-            ObservableList<XYChart.Data<Number, Number>> data = s.getData();
-            for(XYChart.Data d: data) {
-                d.getNode().setScaleX(rateX);
-                d.getNode().setScaleY(rateY);
-            }
+        ObservableList<XYChart.Data<Number, Number>> data = series.getData();
+        for(XYChart.Data d: data) {
+            d.getNode().setScaleX(rateX);
+            d.getNode().setScaleY(rateY);
         }
     }
 
