@@ -106,12 +106,12 @@ public class MainUIController implements Initializable {
             }
         });
         skip.setOnAction(event -> {
-            rockManager.move(10);
+            rockManager.move(1);
             setData(rockManager.getChartData());
             clock.setText(rockManager.clock+"");
         });
         skip10.setOnAction(event -> {
-            rockManager.move(30);
+            rockManager.move(10);
             setData(rockManager.getChartData());
             clock.setText(rockManager.clock+"");
         });
@@ -215,7 +215,7 @@ public class MainUIController implements Initializable {
                 new KeyFrame(
                     new Duration(500/updateSpeed),
                     event -> {
-                        rockManager.move(10);
+                        rockManager.move(1);
                         setData(rockManager.getChartData());
                         clock.setText(rockManager.clock+"");
                     }
