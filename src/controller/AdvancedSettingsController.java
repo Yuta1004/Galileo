@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 
 import java.util.ResourceBundle;
 import java.net.URL;
@@ -20,6 +21,8 @@ public class AdvancedSettingsController implements Initializable {
     private Slider rockMagValue;
     @FXML
     private CheckBox viewRatioNormalize;
+    @FXML
+    private TextField stepVal;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -27,6 +30,7 @@ public class AdvancedSettingsController implements Initializable {
         rockMagValue.setValue(Settings.RockMagnification);
         rockMagValueV.setText("x "+Settings.RockMagnification);
         viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
+        stepVal.setText(""+Settings.StepVal);
 
         // 噴石拡大表示
         rockMagValue.valueProperty().addListener((obs, oldVal, newVal) -> {
@@ -38,6 +42,25 @@ public class AdvancedSettingsController implements Initializable {
         viewRatioNormalize.setOnAction(event -> {
             Settings.ViewRatioNormalize = viewRatioNormalize.isSelected();
         });
+        // ステップ値
+        stepVal.textProperty().addListener((obs, oldVal, newVal) -> {
+            Settings.StepVal = parseDouble(newVal);
+        });
+    }
+
+    /**
+     * String 2 Double
+     * ただし、パースに失敗した場合は0.0を返す
+     *
+     * @param strVal パースする文字列
+     * @return Double
+     */
+    private double parseDouble(String strVal) {
+        try {
+            return Double.parseDouble(strVal);
+        } catch (Exception e) {
+            return 0.0;
+        }
     }
 
 }
