@@ -1,5 +1,7 @@
 package simulator;
 
+import db.Settings;
+
 public class AirResistanceRock extends Rock {
 
     // 計算用変数
@@ -26,7 +28,7 @@ public class AirResistanceRock extends Rock {
         this.diameter = diameter;
 
         // 定数初期化
-        dt = 0.01;
+        dt = 0.1;
         cd = diameter == 0.01 ? 0.4 : 0.2;
         rho_air = 1.2;
         rho_rock = 2800;
@@ -41,6 +43,7 @@ public class AirResistanceRock extends Rock {
     @Override
     public void move() {
         if(moveCnt > 0 && y <= 0) return;
+        dt = Settings.StepVal;
         double tmp = 0.5*cd*rho_air*area*Math.sqrt(Math.pow(vxp, 2)+Math.pow(vyp, 2));
         if(moveCnt == 0) {
             xf = x+vxp*dt;

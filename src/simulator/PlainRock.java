@@ -1,5 +1,7 @@
 package simulator;
 
+import db.Settings;
+
 public class PlainRock extends Rock {
 
     // 計算用変数
@@ -21,7 +23,7 @@ public class PlainRock extends Rock {
     public PlainRock(double x, double y, double v0, double theta) {
         // 初期化
         super(x, y, v0, theta);
-        dt = 0.01;
+        dt = 0.1;
         moveCnt = 0;
         vxp = v0*Math.cos(theta*PI/180.0);
         vyp = v0*Math.sin(theta*PI/180.0);
@@ -31,6 +33,7 @@ public class PlainRock extends Rock {
     public void move() {
         // ステップ値計算
         if(moveCnt > 0 && y <= 0) return;
+        dt = Settings.StepVal;
         if(moveCnt == 0) {
             xf = x+vxp*dt;
             yf = y+vyp*dt;

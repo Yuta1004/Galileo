@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 import lib.Clock;
+import db.Settings;
 
 public class RockManager {
 
@@ -56,7 +57,7 @@ public class RockManager {
      */
     public void move(int n) {
         for(int idx = 0; idx < n; ++ idx) {
-            clock.tick(10);  // 0.01秒単位
+            clock.tick((int)(Settings.StepVal*1000));
             for(Rock rock: rocks)
                 rock.move();
         }
