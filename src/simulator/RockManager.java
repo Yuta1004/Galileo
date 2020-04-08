@@ -84,7 +84,7 @@ public class RockManager {
             Rock rock = rocks.get(idx);
             double sizeRate = 3.0; int colorVal = 0;
             if(rock instanceof AirResistanceRock) {
-                sizeRate = ((AirResistanceRock)rock).diameter*1.5;
+                sizeRate = ((AirResistanceRock)rock).diameter*3.0;
                 colorVal = 5;
             }
             // 描画データ追加
