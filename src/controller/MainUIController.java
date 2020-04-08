@@ -15,6 +15,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 import javafx.animation.Timeline;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -60,6 +61,11 @@ public class MainUIController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        // スプラッシュ表示
+        Stage splash = genStage("", "/fxml/Credit.fxml", new SplashController());
+        splash.initStyle(StageStyle.UNDECORATED);
+        splash.showAndWait();
+
         // 初期化
         this.resource = resource;
         this.logController = new LogViewController();
