@@ -37,7 +37,7 @@ public class MainUIController implements Initializable {
     @FXML
     private Label speedVal, clock;
     @FXML
-    private Button play, skip, skip10, init, reset, genRock;
+    private Button play, skip, skip10, init, reset, genRock, openSettings;
     @FXML
     private TextField widthF, widthT, heightF, heightT;
     @FXML
@@ -118,6 +118,9 @@ public class MainUIController implements Initializable {
         genRock.setOnAction(event -> {
             addRock();
             logController.addLogMsg("Add Rock");
+        });
+        openSettings.setOnAction(event -> {
+            genStage("AdvancedSettings", "/fxml/AdvancedSettings.fxml", null).showAndWait();
         });
 
         // UIイベント<メニュー>

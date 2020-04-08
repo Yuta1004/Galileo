@@ -159,7 +159,7 @@
                         <Font size="22.0" />
                      </font>
                   </Button>
-                  <Button disable="true" mnemonicParsing="false" prefWidth="150.0" text="Tmp2" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="openSettings" mnemonicParsing="false" prefWidth="150.0" text="%Settings" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="22.0" />
                      </font>
