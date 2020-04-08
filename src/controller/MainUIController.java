@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
@@ -63,7 +64,8 @@ public class MainUIController implements Initializable {
     public void initialize(URL location, ResourceBundle resource) {
         // スプラッシュ表示
         Stage splash = genStage("", "/fxml/Credit.fxml", new SplashController());
-        splash.initStyle(StageStyle.UNDECORATED);
+        splash.getScene().setFill(Color.TRANSPARENT);
+        splash.initStyle(StageStyle.TRANSPARENT);
         splash.showAndWait();
 
         // 初期化
