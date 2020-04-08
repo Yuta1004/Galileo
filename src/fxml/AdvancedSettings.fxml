@@ -67,20 +67,10 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <HBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+                              <HBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <VBox alignment="CENTER">
-                                       <children>
-                                          <Label text="1step(s)" />
-                                          <TextField prefWidth="50.0" text="0.01" />
-                                       </children>
-                                    </VBox>
-                                    <VBox alignment="CENTER">
-                                       <children>
-                                          <Label text="10step(s)" />
-                                          <TextField prefWidth="50.0" text="0.01" />
-                                       </children>
-                                    </VBox>
+                                    <TextField prefWidth="50.0" text="0.1" />
+                                    <Label text="s/step" />
                                  </children>
                               </HBox>
                            </children>
