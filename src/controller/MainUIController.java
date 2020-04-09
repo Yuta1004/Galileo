@@ -54,7 +54,6 @@ public class MainUIController implements Initializable {
     private Timeline tl = new Timeline();
 
     // その他管理用
-    private LogViewController logController;
     private ResourceBundle resource;
 
     /**
@@ -70,7 +69,6 @@ public class MainUIController implements Initializable {
 
         // 初期化
         this.resource = resource;
-        this.logController = new LogViewController();
         updateSpeed = 1.0;
         widthFVal = heightFVal = 0;
         widthTVal = 500;
@@ -92,7 +90,6 @@ public class MainUIController implements Initializable {
             play.setText("▷");
             clock.setText(rockManager.clock+"");
             rockManager = new RockManager();
-            logController.addLogMsg("Initialize simulation");
         });
         reset.setOnAction(event -> {
             tl.stop();
@@ -101,17 +98,14 @@ public class MainUIController implements Initializable {
             play.setText("▷");
             clock.setText(rockManager.clock+"");
             setData(rockManager.getChartData());
-            logController.addLogMsg("Reset simulation");
         });
         play.setOnAction(event -> {
             if(tl.getStatus().equals(Animation.Status.RUNNING)) {
                 play.setText("▷");
                 tl.stop();
-                logController.addLogMsg("Stop simulation");
             } else {
                 play.setText("□");
                 initTimeLine();
-                logController.addLogMsg("Start simulation");
             }
         });
         skip.setOnAction(event -> {
@@ -126,7 +120,6 @@ public class MainUIController implements Initializable {
         });
         genRock.setOnAction(event -> {
             addRock();
-            logController.addLogMsg("Add Rock");
         });
         openSettings.setOnAction(event -> {
             tl.stop();
@@ -139,7 +132,7 @@ public class MainUIController implements Initializable {
 
         // UIイベント<メニュー>
         openLog.setOnAction(event -> {
-            Stage stage = genStage("Log", "/fxml/LogView.fxml", logController);
+            Stage stage = genStage("Log", "/fxml/LogView.fxml", new LogViewController());
             stage.setAlwaysOnTop(true);
             stage.show();
         });
