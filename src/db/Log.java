@@ -42,4 +42,11 @@ public class Log {
         fetchedNum = logData.size();
         return new ArrayList<String>(logData.subList(oldFetchedNum, logData.size()));
     }
+
+    /**
+     * 全データ取得
+     */
+    public static ArrayList<String> getAll() {
+        return new ArrayList<String>(logData.subList(0, logData.size()));
+    }
 }
