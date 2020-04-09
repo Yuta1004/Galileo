@@ -13,7 +13,7 @@ public class Log {
      *
      * @param log ログ
      */
-    public static void addData(String log) {
+    public static void add(String log) {
         updatedFlag = true;
         logData.add(logData.size()+": "+log);
     }
@@ -21,7 +21,7 @@ public class Log {
     /**
      * ログを追加する(フォーマット付き)
      */
-    public static void addData(String fmt, Object ... vals) {
+    public static void add(String fmt, Object ... vals) {
         addData(String.format(fmt, vals));
     }
 
