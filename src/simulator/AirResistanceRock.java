@@ -77,6 +77,7 @@ public class AirResistanceRock extends Rock {
         vyb = vyf = 0;
         vxp = v0*Math.cos(theta*PI/180.0);
         vyp = v0*Math.sin(theta*PI/180.0);
+        hitGroundFlag = false;
     }
 
     /**
