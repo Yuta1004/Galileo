@@ -13,23 +13,11 @@ import java.util.ResourceBundle;
 
 public class LogViewController implements Initializable {
 
-    // ログ保持用
-    private int logCnt;
-    private ObservableList<String> logData;
-
     // UI部品
     @FXML
     private CheckBox showAlwaysTop;
     @FXML
     private ListView<String> logList;
-
-    /**
-     * LogViewControllerのコンストラクタ
-     */
-    public LogViewController() {
-        logCnt = 0;
-        logData = FXCollections.observableArrayList(genLogStr("Start logging..."));
-    }
 
     /**
      * ウィンドウ初期化
@@ -39,33 +27,13 @@ public class LogViewController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
-        logList.setItems(logData);
+        logList.setItems(FXCollections.observableArrayList(""));
         showAlwaysTop.setOnAction(event -> {
             Stage stage = (Stage)showAlwaysTop.getScene().getWindow();
             stage.setAlwaysOnTop(
                 showAlwaysTop.isSelected()
             );
         });
-    }
-
-    /**
-     * ログ追加
-     *
-     * @param msg ログデータ
-     */
-    public void addLogMsg(String msg) {
-        logData.add(genLogStr(msg));
-        if(logList != null)
-            logList.setItems(logData);
-    }
-
-    /**
-     * ログ表示用にフォーマットされたStringを返す
-     *
-     * @param msg 表示するメッセージ
-     */
-    private String genLogStr(String msg) {
-        return (logCnt++) + ": " + msg + "\n";
     }
 
 }
