@@ -48,6 +48,12 @@ public class LogViewController implements Initializable {
                 showAlwaysTop.isSelected()
             );
         });
-    }
 
+        // 終了イベント
+        logList.sceneProperty().addListener((obsS, oldS, newS) ->
+            newS.windowProperty().addListener((obsW, oldW, newW) ->
+                newW.setOnCloseRequest(event -> fetchThread.stop())
+            )
+        );
+    }
 }
