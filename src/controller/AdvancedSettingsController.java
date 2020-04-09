@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import java.util.ResourceBundle;
 import java.net.URL;
 
+import db.Log;
 import db.Settings;
 
 public class AdvancedSettingsController implements Initializable {
@@ -59,6 +60,7 @@ public class AdvancedSettingsController implements Initializable {
         try {
             return Double.parseDouble(strVal);
         } catch (Exception e) {
+            Log.add("[WARN] Corrupt number (modified to 0.0) => %s", strVal);
             return 0.0;
         }
     }

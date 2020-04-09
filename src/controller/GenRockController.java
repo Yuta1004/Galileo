@@ -9,6 +9,8 @@ import javafx.scene.control.CheckBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import db.Log;
+
 public class GenRockController implements Initializable {
 
     // UI
@@ -70,7 +72,8 @@ public class GenRockController implements Initializable {
         try {
             return Double.parseDouble(numStr);
         } catch (Exception e) {
-            return Double.MIN_VALUE;
+            Log.add("[WARN] Corrupt number (modified to 0.0) => %s", numStr);
+            return 0.0;
         }
     }
 

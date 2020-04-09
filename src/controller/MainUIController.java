@@ -326,6 +326,7 @@ public class MainUIController implements Initializable {
         try {
             return Double.parseDouble(s);
         } catch (Exception e) {
+            Log.add("[WARN] Corrupt number (modified to 0.0) => %s", s);
             return 0.0;
         }
     }
