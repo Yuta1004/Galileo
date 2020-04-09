@@ -19,6 +19,13 @@ public class Log {
     }
 
     /**
+     * ログを追加する(フォーマット付き)
+     */
+    public static void addData(String fmt, Object ... vals) {
+        addData(String.format(fmt, vals));
+    }
+
+    /**
      * 更新があったかどうかを返す
      *
      * @return boolean
