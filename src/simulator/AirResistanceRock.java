@@ -1,5 +1,6 @@
 package simulator;
 
+import db.Log;
 import db.Settings;
 
 public class AirResistanceRock extends Rock {
@@ -11,6 +12,7 @@ public class AirResistanceRock extends Rock {
     private double yf, yb;
     private double vxf, vxp, vxb;
     private double vyf, vyp, vyb;
+    private boolean hitGroundFlag = false;
     private final double rho_rock, rho_air;
     public final double cd, diameter, mass, area;
 
@@ -42,8 +44,13 @@ public class AirResistanceRock extends Rock {
 
     @Override
     public void move() {
-        if(moveCnt > 0 && y <= 0) return;
+        // 着地判定
         dt = Settings.StepVal;
+        if(!hitGroundFlag && moveCnt > 0 && y <= 0) {
+            hitGroundFlag = true;
+            calSpeedAndArg();
+        }
+
         double tmp = 0.5*cd*rho_air*area*Math.sqrt(Math.pow(vxp, 2)+Math.pow(vyp, 2));
         if(moveCnt == 0) {
             xf = x+vxp*dt;
@@ -85,6 +92,19 @@ public class AirResistanceRock extends Rock {
         y = yf;
         vxp = vxf;
         vyp = vyf;
+    }
+
+    /**
+     * 噴石の速度、角度を調べてログ出力
+     * ※弾着時に呼ばれることが前提の実装
+     */
+    private void calSpeedAndArg() {
+        double X = x-xb;
+        double Y = yb-y;
+        double HypoXY = Math.sqrt(X*X+Y*Y);
+        double deg = Math.toDegrees(Math.acos(X/HypoXY));   // °
+        double speed = HypoXY*(1/Settings.StepVal);         // m/s
+        Log.add("Hit ground => Speed: %.3fm/s, Deg: %.3f°", speed, deg);
     }
 }
 
