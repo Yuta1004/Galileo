@@ -12,4 +12,8 @@ public class Log {
         updatedFlag = true;
         logData.add(num+": "+log);
     }
+
+    public static boolean checkUpdate() {
+        return updatedFlag;
+    }
 }
