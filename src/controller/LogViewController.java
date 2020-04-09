@@ -47,7 +47,7 @@ public class LogViewController implements Initializable {
         fetchThread.start();
 
         // UI初期化
-        logData = FXCollections.observableArrayList("");
+        logData = FXCollections.observableArrayList();
         logData.addAll(Log.getAll());
         logList.setItems(logData);
         showAlwaysTop.setOnAction(event -> {
