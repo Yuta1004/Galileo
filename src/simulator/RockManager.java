@@ -6,10 +6,12 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 import lib.Clock;
+import db.Log;
 import db.Settings;
 
 public class RockManager {
 
+    // 噴石管理
     public final Clock clock;
     private ArrayList<Rock> rocks;
     private Color[] colors = {
@@ -34,6 +36,8 @@ public class RockManager {
      * @param theta 射出角度
      */
     public void addPlainRock(double x, double y, double v0, double theta) {
+        Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°",
+                x, y, v0, theta);
         rocks.add(new PlainRock(x, y, v0, theta));
     }
 
@@ -47,6 +51,8 @@ public class RockManager {
      * @param diameter 噴石の直径
      */
     public void addAirResistanceRock(double x, double y, double v0, double theta, double diameter) {
+        Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°, diameter: %.3fm",
+                x, y, v0, theta, diameter);
         rocks.add(new AirResistanceRock(x, y, v0, theta, diameter));
     }
 

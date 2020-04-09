@@ -27,6 +27,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.io.IOException;
 
+import db.Log;
 import db.Settings;
 import simulator.RockManager;
 
@@ -90,6 +91,8 @@ public class MainUIController implements Initializable {
             play.setText("▷");
             clock.setText(rockManager.clock+"");
             rockManager = new RockManager();
+            Log.add("Initialize simulation => ViewScale: %.1f, ScaleNormalize: %s",
+                    Settings.RockMagnification, Settings.ViewRatioNormalize);
         });
         reset.setOnAction(event -> {
             tl.stop();
@@ -98,6 +101,7 @@ public class MainUIController implements Initializable {
             play.setText("▷");
             clock.setText(rockManager.clock+"");
             setData(rockManager.getChartData());
+            Log.add("Reset simulation (Registerd data is still saved)");
         });
         play.setOnAction(event -> {
             if(tl.getStatus().equals(Animation.Status.RUNNING)) {
