@@ -13,6 +13,9 @@ import java.util.ResourceBundle;
 
 public class LogViewController implements Initializable {
 
+    // ログ管理用
+    Thread fetchThread;
+
     // UI部品
     @FXML
     private CheckBox showAlwaysTop;
@@ -27,6 +30,17 @@ public class LogViewController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        // 更新スレッド初期化
+        fetchThread = new Thread(() -> {
+            while(true) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {}
+            }
+        });
+        // fetchThread.start();
+
+        // UI初期化
         logList.setItems(FXCollections.observableArrayList(""));
         showAlwaysTop.setOnAction(event -> {
             Stage stage = (Stage)showAlwaysTop.getScene().getWindow();
