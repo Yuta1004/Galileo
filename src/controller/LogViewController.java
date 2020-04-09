@@ -37,7 +37,7 @@ public class LogViewController implements Initializable {
         // 更新スレッド初期化
         fetchThread = new Thread(() -> {
             while(true) {
-                if(Log.checkUpdate()) {
+                if(Log.checkUpdate())
                     Platform.runLater(() -> logData.addAll(Log.fetch()));
                 try {
                     Thread.sleep(100);
@@ -48,6 +48,7 @@ public class LogViewController implements Initializable {
 
         // UI初期化
         logData = FXCollections.observableArrayList("");
+        logData.addAll(Log.getAll());
         logList.setItems(logData);
         showAlwaysTop.setOnAction(event -> {
             Stage stage = (Stage)showAlwaysTop.getScene().getWindow();
