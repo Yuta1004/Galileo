@@ -7,14 +7,18 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.CheckBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.application.Platform;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import db.Log;
+
 public class LogViewController implements Initializable {
 
     // ログ管理用
-    Thread fetchThread;
+    private Thread fetchThread;
+    private ObservableList<String> logData;
 
     // UI部品
     @FXML
@@ -33,15 +37,18 @@ public class LogViewController implements Initializable {
         // 更新スレッド初期化
         fetchThread = new Thread(() -> {
             while(true) {
+                if(Log.checkUpdate()) {
+                    Platform.runLater(() -> logData.addAll(Log.fetch()));
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {}
             }
         });
-        // fetchThread.start();
+        fetchThread.start();
 
         // UI初期化
-        logList.setItems(FXCollections.observableArrayList(""));
+        logData = FXCollections.observableArrayList("");
+        logList.setItems(logData);
         showAlwaysTop.setOnAction(event -> {
             Stage stage = (Stage)showAlwaysTop.getScene().getWindow();
             stage.setAlwaysOnTop(
