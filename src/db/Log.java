@@ -22,7 +22,7 @@ public class Log {
      * ログを追加する(フォーマット付き)
      */
     public static void add(String fmt, Object ... vals) {
-        addData(String.format(fmt, vals));
+        add(String.format(fmt, vals));
     }
 
     /**
