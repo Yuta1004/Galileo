@@ -1,5 +1,8 @@
 package simulator;
 
+import db.Log;
+import db.Settings;
+
 public abstract class Rock {
 
     protected double x, y;
@@ -53,4 +56,18 @@ public abstract class Rock {
      * リセット
      */
     public abstract void reset();
+
+    /**
+     * 噴石の速度、角度を調べてログ出力
+     * ※弾着時に呼ばれることが前提の実装
+     * ※空気抵抗の有無にかかわらず共通の処理
+     */
+    protected void calSpeedAndArg(double xb, double yb, double x, double y) {
+        double X = x-xb;
+        double Y = yb-y;
+        double HypoXY = Math.sqrt(X*X+Y*Y);
+        double deg = Math.toDegrees(Math.acos(X/HypoXY));   // °
+        double speed = HypoXY*(1/Settings.StepVal);         // m/s
+        Log.add("Hit ground => Speed: %.3fm/s, Deg: %.3f°", speed, deg);
+    }
 }

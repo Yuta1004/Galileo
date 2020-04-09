@@ -1,6 +1,5 @@
 package simulator;
 
-import db.Log;
 import db.Settings;
 
 public class PlainRock extends Rock {
@@ -37,7 +36,7 @@ public class PlainRock extends Rock {
         dt = Settings.StepVal;
         if(!hitGroundFlag && moveCnt > 0 && y <= 0) {
             hitGroundFlag = true;
-            calSpeedAndArg();
+            calSpeedAndArg(xb, yb, x, y);
         }
 
         // ステップ値計算
@@ -81,18 +80,5 @@ public class PlainRock extends Rock {
         y = yf;
         vxp = vxf;
         vyp = vyf;
-    }
-
-    /**
-     * 噴石の速度、角度を調べてログ出力
-     * ※弾着時に呼ばれることが前提の実装
-     */
-    private void calSpeedAndArg() {
-        double X = x-xb;
-        double Y = yb-y;
-        double HypoXY = Math.sqrt(X*X+Y*Y);
-        double deg = Math.toDegrees(Math.acos(X/HypoXY));   // °
-        double speed = HypoXY*(1/Settings.StepVal);         // m/s
-        Log.add("Hit ground => Speed: %.3fm/s, Deg: %.3f°", speed, deg);
     }
 }
