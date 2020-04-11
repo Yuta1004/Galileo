@@ -45,7 +45,7 @@ public class RockManager {
     {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°",
                 x, y, v0, theta);
-        rocks.add(new PlainRock(x, y, v0, theta));
+        rocks.add(new PlainRock(id, x, y, v0, theta));
         colorDict.put(id, color);
     }
 
@@ -65,7 +65,7 @@ public class RockManager {
     {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°, diameter: %.3fm",
                 x, y, v0, theta, diameter);
-        rocks.add(new AirResistanceRock(x, y, v0, theta, diameter));
+        rocks.add(new AirResistanceRock(id, x, y, v0, theta, diameter));
         ColorDict.put(id, color);
     }
 
