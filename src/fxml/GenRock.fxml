@@ -127,7 +127,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="rockIdTf" prefWidth="70.0" promptText="Rock0" />
+                        <TextField fx:id="idTf" prefWidth="70.0" promptText="Rock0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -137,7 +137,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <ColorPicker prefWidth="150.0" />
+                        <ColorPicker fx:id="colorPicker" prefWidth="150.0" />
                      </children>
                   </HBox>
                </children>

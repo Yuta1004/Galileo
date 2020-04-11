@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,10 +21,13 @@ public class GenRockController implements Initializable {
     @FXML
     private CheckBox enableAir;
     @FXML
-    private TextField xTf, yTf, v0Tf, thetaTf, diameterTf;
+    private ColorPicker colorPicker;
+    @FXML
+    private TextField xTf, yTf, v0Tf, thetaTf, diameterTf, idTf;
 
     // 状態管理
     private boolean inpOk;
+    public String id, color;
     public double x, y, v0, theta, diameter;
 
     /**
@@ -58,6 +63,11 @@ public class GenRockController implements Initializable {
      * 入力検証
      */
     private void validateInput() {
+        // id, 色
+        id = idTf.getText() == "" ? "Rock" : idTf.getText();
+        color = colorPicker.getValue().toString();
+
+        // その他属性
         inpOk = (x = toDouble(xTf.getText())) != Double.MIN_VALUE
              && (y = toDouble(yTf.getText())) != Double.MIN_VALUE
              && (v0 = toDouble(v0Tf.getText())) != Double.MIN_VALUE
