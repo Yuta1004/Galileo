@@ -30,14 +30,20 @@ public class GenRockController implements Initializable {
     public String id, color;
     public double x, y, v0, theta, diameter;
 
+    // その他
+    private Color colors[] = { Color.CORNFLOWERBLUE, Color.BROWN }; // 空気抵抗 0: 無, 1: 有
+
     /**
      * 初期化
      */
     @Override
     public void initialize(URL location, ResourceBundle resource) {
+        colorPicker.setValue(Color.BROWN);
         enableAir.setOnAction(event -> {
-            diameterTf.setEditable(enableAir.isSelected());
-            diameterTf.setDisable(!enableAir.isSelected());
+            boolean state = enableAir.isSelected();
+            diameterTf.setEditable(state);
+            diameterTf.setDisable(state);
+            colorPicker.setValue(colors[state?1:0]);
         });
         done.setOnAction(event -> {
             validateInput();
