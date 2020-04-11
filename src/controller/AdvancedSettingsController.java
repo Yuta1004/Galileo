@@ -12,6 +12,7 @@ import java.net.URL;
 
 import db.Log;
 import db.Settings;
+import util.Util;
 
 public class AdvancedSettingsController implements Initializable {
 
@@ -56,24 +57,7 @@ public class AdvancedSettingsController implements Initializable {
         });
         // ステップ値
         stepVal.textProperty().addListener((obs, oldVal, newVal) -> {
-            Settings.StepVal = parseDouble(newVal);
+            Settings.StepVal = Util.parseDouble(newVal, 0.0);
         });
     }
-
-    /**
-     * String 2 Double
-     * ただし、パースに失敗した場合は0.0を返す
-     *
-     * @param strVal パースする文字列
-     * @return Double
-     */
-    private double parseDouble(String strVal) {
-        try {
-            return Double.parseDouble(strVal);
-        } catch (Exception e) {
-            Log.add("[WARN] Corrupt number (modified to 0.0) => %s", strVal);
-            return 0.0;
-        }
-    }
-
 }

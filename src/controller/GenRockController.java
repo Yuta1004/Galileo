@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import db.Log;
+import util.Util;
 
 public class GenRockController implements Initializable {
 
@@ -74,23 +75,12 @@ public class GenRockController implements Initializable {
         color = colorPicker.getValue().toString();
 
         // その他属性
-        inpOk = (x = toDouble(xTf.getText())) != Double.MIN_VALUE
-             && (y = toDouble(yTf.getText())) != Double.MIN_VALUE
-             && (v0 = toDouble(v0Tf.getText())) != Double.MIN_VALUE
-             && (theta = toDouble(thetaTf.getText())) != Double.MIN_VALUE
-             && (!enableAir.isSelected() || (diameter = toDouble(diameterTf.getText())) != Double.MIN_VALUE);
+        inpOk = (x = Util.parseDouble(xTf.getText(), Double.MIN_VALUE)) != Double.MIN_VALUE
+             && (y = Util.parseDouble(yTf.getText(), Double.MIN_VALUE)) != Double.MIN_VALUE
+             && (v0 = Util.parseDouble(v0Tf.getText(), Double.MIN_VALUE)) != Double.MIN_VALUE
+             && (theta = Util.parseDouble(thetaTf.getText(), Double.MIN_VALUE)) != Double.MIN_VALUE
+             &&
+                (!enableAir.isSelected() ||
+                (diameter = Util.parseDouble(diameterTf.getText(), Double.MIN_VALUE)) != Double.MIN_VALUE);
     }
-
-    /**
-     * String to double
-     */
-    private double toDouble(String numStr) {
-        try {
-            return Double.parseDouble(numStr);
-        } catch (Exception e) {
-            Log.add("[WARN] Corrupt number => %s", numStr);
-            return Double.MIN_VALUE;
-        }
-    }
-
 }

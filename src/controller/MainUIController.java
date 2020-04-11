@@ -30,6 +30,7 @@ import java.io.IOException;
 import db.Log;
 import db.Settings;
 import simulator.RockManager;
+import util.Util;
 
 public class MainUIController implements Initializable {
 
@@ -154,19 +155,19 @@ public class MainUIController implements Initializable {
 
         // UIイベント<テキスト入力(1行)>
         widthF.textProperty().addListener((obs, oldText, newText) -> {
-            widthFVal = parseDouble(newText);
+            widthFVal = Util.parseDouble(newText, 0.0);
             initChart(true);
         });
         widthT.textProperty().addListener((obs, oldText, newText) -> {
-            widthTVal = parseDouble(newText);
+            widthTVal = Util.parseDouble(newText, 0.0);
             initChart(true);
         });
         heightF.textProperty().addListener((obs, oldText, newText) -> {
-            heightFVal = parseDouble(newText);
+            heightFVal = Util.parseDouble(newText, 0.0);
             initChart(true);
         });
         heightT.textProperty().addListener((obs, oldText, newText) -> {
-            heightTVal = parseDouble(newText);
+            heightTVal = Util.parseDouble(newText, 0.0);
             initChart(true);
         });
     }
@@ -331,19 +332,4 @@ public class MainUIController implements Initializable {
         stage.setTitle(title);
         return stage;
     }
-
-
-    /**
-     * String to Double
-     * 失敗時には0を返す
-     */
-    private double parseDouble(String s) {
-        try {
-            return Double.parseDouble(s);
-        } catch (Exception e) {
-            Log.add("[WARN] Corrupt number (modified to 0.0) => %s", s);
-            return 0.0;
-        }
-    }
-
 }
