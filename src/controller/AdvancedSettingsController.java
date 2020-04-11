@@ -42,7 +42,10 @@ public class AdvancedSettingsController implements Initializable {
         });
         // 表示比正規化
         viewRatioNormalize.setOnAction(event -> {
-            Settings.ViewRatioNormalize = viewRatioNormalize.isSelected();
+            if(!Settings.AxisNormalize)
+                Settings.ViewRatioNormalize = viewRatioNormalize.isSelected();
+            else
+                viewRatioNormalize.setSelected(true);
         });
         // 軸目盛り間隔正規化
         axisNormalize.setOnAction(event -> {
