@@ -4,7 +4,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 import java.util.ArrayList;
-import java.util.Dictionary;
+import java.util.Hashtable;
 
 import lib.Clock;
 import db.Log;
@@ -15,7 +15,7 @@ public class RockManager {
     // 噴石管理
     public final Clock clock;
     private ArrayList<Rock> rocks;
-    private Dictionary<String, String> colorDict;
+    private Hashtable<String, String> colorTable;
 
     /**
      * コンストラクタ
@@ -23,7 +23,7 @@ public class RockManager {
     public RockManager() {
         clock = new Clock(0, 0, 0, 0);
         rocks = new ArrayList<Rock>();
-        colorDict = new Dictionary<String, String>();
+        colorTable = new Hashtable<String, String>();
     }
 
     /**
@@ -42,7 +42,7 @@ public class RockManager {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°",
                 x, y, v0, theta);
         rocks.add(new PlainRock(id, x, y, v0, theta));
-        colorDict.put(id, color);
+        colorTable.put(id, color);
     }
 
     /**
@@ -62,7 +62,7 @@ public class RockManager {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°, diameter: %.3fm",
                 x, y, v0, theta, diameter);
         rocks.add(new AirResistanceRock(id, x, y, v0, theta, diameter));
-        ColorDict.put(id, color);
+        colorTable.put(id, color);
     }
 
     /**
@@ -102,7 +102,7 @@ public class RockManager {
                 sizeRate *= ((AirResistanceRock)rock).diameter;
             // 描画データ追加
             XYChart.Data data = new XYChart.Data(rock.getX(), rock.getY());
-            Color color = Color.web(colorDict.get(rock.getID()));
+            Color color = Color.web(colorTable.get(rock.getID()));
             data.setNode(new Circle(sizeRate, color));
             series.getData().add(data);
         }
