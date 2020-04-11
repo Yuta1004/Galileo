@@ -277,15 +277,17 @@ public class MainUIController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         if(controller.inputOK()) {
+            String id = controller.id;
+            String color = controller.color;
             double x = controller.x;
             double y = controller.y;
             double v0 = controller.v0;
             double theta = controller.theta;
             double diameter = controller.diameter;
             if(controller.enableAirRes())
-                rockManager.addAirResistanceRock(x, y, v0, theta, diameter);
+                rockManager.addAirResistanceRock(id, color, x, y, v0, theta, diameter);
             else
-                rockManager.addPlainRock(x, y, v0, theta);
+                rockManager.addPlainRock(id, color, x, y, v0, theta);
             setData(rockManager.getChartData());
         }
     }
