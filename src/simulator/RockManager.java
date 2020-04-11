@@ -39,8 +39,8 @@ public class RockManager {
     public void addPlainRock
         (String id, String color, double x, double y, double v0, double theta)
     {
-        Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°",
-                x, y, v0, theta);
+        Log.add("New Rock => ID: %s, X: %.1fm, Y: %.1fm, V0: %.1fm/s, Theta: %.1f°",
+                id, x, y, v0, theta);
         rocks.add(new PlainRock(id, x, y, v0, theta));
         colorTable.put(id, color);
     }
@@ -59,8 +59,8 @@ public class RockManager {
     public void addAirResistanceRock
         (String id, String color, double x, double y, double v0, double theta, double diameter)
     {
-        Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°, diameter: %.3fm",
-                x, y, v0, theta, diameter);
+        Log.add("New Rock => ID: %s, X: %.1fm, Y: %.1fm, V0: %.1fm/s, Theta: %.1f°, Diameter: %.3fm",
+                id, x, y, v0, theta, diameter);
         rocks.add(new AirResistanceRock(id, x, y, v0, theta, diameter));
         colorTable.put(id, color);
     }

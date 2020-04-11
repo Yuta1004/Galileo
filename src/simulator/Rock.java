@@ -80,6 +80,6 @@ public abstract class Rock {
         double HypoXY = Math.sqrt(X*X+Y*Y);
         double deg = Math.toDegrees(Math.acos(X/HypoXY));   // °
         double speed = HypoXY*(1/Settings.StepVal);         // m/s
-        Log.add("Hit ground => Speed: %.3fm/s, Deg: %.3f°", speed, deg);
+        Log.add("Hit ground => ID: %s, Speed: %.3fm/s, Deg: %.3f°", id, speed, deg);
     }
 }
