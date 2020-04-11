@@ -229,7 +229,7 @@ public class MainUIController implements Initializable {
             setData(rockManager.getChartData());
             clock.setText(rockManager.clock.toString());
         });
-        // tl.stop();
+        tl.stop();
         tl = new Timeline(kf);
         tl.setCycleCount(Timeline.INDEFINITE);
         tl.play();
