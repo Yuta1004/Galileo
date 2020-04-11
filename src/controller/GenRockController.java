@@ -82,8 +82,8 @@ public class GenRockController implements Initializable {
         try {
             return Double.parseDouble(numStr);
         } catch (Exception e) {
-            Log.add("[WARN] Corrupt number (modified to 0.0) => %s", numStr);
-            return 0.0;
+            Log.add("[WARN] Corrupt number => %s", numStr);
+            return Double.MIN_VALUE;
         }
     }
 
