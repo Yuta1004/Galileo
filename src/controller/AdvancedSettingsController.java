@@ -44,8 +44,12 @@ public class AdvancedSettingsController implements Initializable {
         viewRatioNormalize.setOnAction(event -> {
             Settings.ViewRatioNormalize = viewRatioNormalize.isSelected();
         });
+        // 軸目盛り間隔正規化
         axisNormalize.setOnAction(event -> {
-            Settings.AxisNormalize = axisNormalize.isSelected();
+            boolean state = axisNormalize.isSelected();
+            Settings.AxisNormalize = state;
+            Settings.ViewRatioNormalize = state;
+            viewRatioNormalize.setSelected(state);
         });
         // ステップ値
         stepVal.textProperty().addListener((obs, oldVal, newVal) -> {
