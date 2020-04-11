@@ -176,6 +176,7 @@ public class MainUIController implements Initializable {
      */
     private void initChart(boolean takeover) {
         // NumberAxis初期化
+        axisNormalize();
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Distance(m)");
@@ -287,6 +288,21 @@ public class MainUIController implements Initializable {
                 rockManager.addPlainRock(id, color, x, y, v0, theta);
             setData(rockManager.getChartData());
         }
+    }
+
+    /**
+     * 軸サイズの正規化を行う
+     */
+    private void axisNormalize() {
+        if(chart == null) return;
+        if(Settings.AxisNormalize) {
+            double waSize = ((Number)chart.getXAxis().getWidth()).doubleValue();
+            double haSize = ((Number)chart.getYAxis().getHeight()).doubleValue();
+            double aratio = haSize/waSize;
+            double baseSize = widthTVal-widthFVal;
+            heightTVal = heightFVal+baseSize*aratio;
+        }
+        heightT.setDisable(Settings.AxisNormalize);
     }
 
     /**
