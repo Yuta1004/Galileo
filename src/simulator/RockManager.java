@@ -4,6 +4,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 import java.util.ArrayList;
+import java.util.Dictionary;
 
 import lib.Clock;
 import db.Log;
@@ -14,6 +15,7 @@ public class RockManager {
     // 噴石管理
     public final Clock clock;
     private ArrayList<Rock> rocks;
+    private Dictionary<String, String> colorDict;
     private Color[] colors = {
         Color.BLUE, Color.CORNFLOWERBLUE, Color.DARKBLUE, Color.DODGERBLUE, Color.NAVY,
         Color.BROWN, Color.CHOCOLATE, Color.DARKGOLDENROD, Color.FIREBRICK, Color.DARKORANGE
@@ -25,6 +27,7 @@ public class RockManager {
     public RockManager() {
         clock = new Clock(0, 0, 0, 0);
         rocks = new ArrayList<Rock>();
+        colorDict = new Dictionary<String, String>();
     }
 
     /**
@@ -43,6 +46,7 @@ public class RockManager {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°",
                 x, y, v0, theta);
         rocks.add(new PlainRock(x, y, v0, theta));
+        colorDict.put(id, color);
     }
 
     /**
@@ -62,6 +66,7 @@ public class RockManager {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°, diameter: %.3fm",
                 x, y, v0, theta, diameter);
         rocks.add(new AirResistanceRock(x, y, v0, theta, diameter));
+        ColorDict.put(id, color);
     }
 
     /**
@@ -96,14 +101,13 @@ public class RockManager {
         for(int idx = 0; idx < rocks.size(); ++ idx) {
             // 描画属性決定
             Rock rock = rocks.get(idx);
-            double sizeRate = 3.0; int colorVal = 0;
-            if(rock instanceof AirResistanceRock) {
-                sizeRate = ((AirResistanceRock)rock).diameter*3.0;
-                colorVal = 5;
-            }
+            double sizeRate = 3.0;
+            if(rock instanceof AirResistanceRock)
+                sizeRate *= ((AirResistanceRock)rock).diameter;
             // 描画データ追加
             XYChart.Data data = new XYChart.Data(rock.getX(), rock.getY());
-            data.setNode(new Circle(sizeRate, colors[idx%5+colorVal]));
+            Color color = Color.web(colorDict.get(rock.getID()));
+            data.setNode(new Circle(sizeRate, color));
             series.getData().add(data);
         }
         return series;
