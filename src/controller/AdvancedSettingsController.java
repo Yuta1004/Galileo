@@ -21,7 +21,7 @@ public class AdvancedSettingsController implements Initializable {
     @FXML
     private Slider rockMagValue;
     @FXML
-    private CheckBox viewRatioNormalize;
+    private CheckBox viewRatioNormalize, axisNormalize;
     @FXML
     private TextField stepVal;
 
@@ -31,6 +31,7 @@ public class AdvancedSettingsController implements Initializable {
         rockMagValue.setValue(Settings.RockMagnification);
         rockMagValueV.setText("x "+Settings.RockMagnification);
         viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
+        axisNormalize.setSelected(Settings.AxisNormalize);
         stepVal.setText(""+Settings.StepVal);
 
         // 噴石拡大表示
@@ -42,6 +43,9 @@ public class AdvancedSettingsController implements Initializable {
         // 表示比正規化
         viewRatioNormalize.setOnAction(event -> {
             Settings.ViewRatioNormalize = viewRatioNormalize.isSelected();
+        });
+        axisNormalize.setOnAction(event -> {
+            Settings.AxisNormalize = axisNormalize.isSelected();
         });
         // ステップ値
         stepVal.textProperty().addListener((obs, oldVal, newVal) -> {
