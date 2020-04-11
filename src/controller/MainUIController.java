@@ -223,17 +223,14 @@ public class MainUIController implements Initializable {
      * TimeLine初期化
      */
     private void initTimeLine() {
-        tl.stop();
-        tl = new Timeline(
-                new KeyFrame(
-                    new Duration(500/updateSpeed),
-                    event -> {
-                        rockManager.move(1);
-                        setData(rockManager.getChartData());
-                        clock.setText(rockManager.clock+"");
-                    }
-                )
-            );
+        Duration d = new Duration(500/updateSpeed);
+        KeyFrame kf = new KeyFrame(d, event -> {
+            rockManager.move(1);
+            setData(rockManager.getChartData());
+            clock.setText(rockManager.clock.toString());
+        });
+        // tl.stop();
+        tl = new Timeline(kf);
         tl.setCycleCount(Timeline.INDEFINITE);
         tl.play();
     }
