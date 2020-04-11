@@ -5,6 +5,7 @@ import db.Settings;
 
 public abstract class Rock {
 
+    public final String id;
     protected double x, y;
     protected final double v0, theta;
     protected final double X, Y;
@@ -15,14 +16,16 @@ public abstract class Rock {
     /**
      * コンストラクタ
      *
+     * @param id 噴石ID
      * @param x x座標の初期値
      * @param y y座標の初期値
      * @param v0 射出速度
      * @param theta 射出角度
      */
-    public Rock(double x, double y, double v0, double theta) {
+    public Rock(String id, double x, double y, double v0, double theta) {
         X = x;
         Y = y;
+        this.id = id;
         this.x = x;
         this.y = y;
         this.v0 = v0;

@@ -16,14 +16,15 @@ public class PlainRock extends Rock {
     /**
      * コンストラクタ
      *
+     * @param id 噴石ID
      * @param x x座標の初期値
      * @param y y座標の初期値
      * @param v0 射出速度
      * @param theta 射出角度
      */
-    public PlainRock(double x, double y, double v0, double theta) {
+    public PlainRock(String id, double x, double y, double v0, double theta) {
         // 初期化
-        super(x, y, v0, theta);
+        super(id, x, y, v0, theta);
         dt = 0.1;
         moveCnt = 0;
         vxp = v0*Math.cos(theta*PI/180.0);

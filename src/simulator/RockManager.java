@@ -30,12 +30,16 @@ public class RockManager {
     /**
      * 空気抵抗なし噴石追加
      *
+     * @param id 噴石ID
+     * @param color 表示色
      * @param x x座標
      * @param y y座標
      * @param v0 射出速度
      * @param theta 射出角度
      */
-    public void addPlainRock(double x, double y, double v0, double theta) {
+    public void addPlainRock
+        (String id, String color, double x, double y, double v0, double theta)
+    {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°",
                 x, y, v0, theta);
         rocks.add(new PlainRock(x, y, v0, theta));
@@ -44,13 +48,17 @@ public class RockManager {
     /**
      * 空気抵抗あり噴石追加
      *
+     * @param id 噴石ID
+     * @param color 表示色
      * @param x x座標
      * @param y y座標
      * @param v0 射出速度
      * @param theta 射出速度
      * @param diameter 噴石の直径
      */
-    public void addAirResistanceRock(double x, double y, double v0, double theta, double diameter) {
+    public void addAirResistanceRock
+        (String id, String color, double x, double y, double v0, double theta, double diameter)
+    {
         Log.add("New Rock => x: %.1fm, y: %.1fm, v0: %.1fm/s, theta: %.1f°, diameter: %.3fm",
                 x, y, v0, theta, diameter);
         rocks.add(new AirResistanceRock(x, y, v0, theta, diameter));

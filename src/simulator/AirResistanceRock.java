@@ -18,13 +18,14 @@ public class AirResistanceRock extends Rock {
     /**
      * コンストラクタ
      *
+     * @param id 噴石id
      * @param x x座標の初期値
      * @param y y座標の初期値
      * @param v0 射出速度
      * @param theta 射出角度
      * @param diameter 噴石の直径(m)
      */
-    public AirResistanceRock(double x, double y, double v0, double theta, double diameter) {
+    public AirResistanceRock(String id, double x, double y, double v0, double theta, double diameter) {
         super(x, y, v0, theta);
         this.diameter = diameter;
 
