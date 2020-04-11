@@ -16,10 +16,6 @@ public class RockManager {
     public final Clock clock;
     private ArrayList<Rock> rocks;
     private Dictionary<String, String> colorDict;
-    private Color[] colors = {
-        Color.BLUE, Color.CORNFLOWERBLUE, Color.DARKBLUE, Color.DODGERBLUE, Color.NAVY,
-        Color.BROWN, Color.CHOCOLATE, Color.DARKGOLDENROD, Color.FIREBRICK, Color.DARKORANGE
-    };
 
     /**
      * コンストラクタ
