@@ -64,7 +64,7 @@ public class MainUIController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         // スプラッシュ表示
-        Stage splash = genStage("", "/fxml/Credit.fxml", new SplashController());
+        Stage splash = Util.genStage("", "/fxml/Credit.fxml", new SplashController(), resource);
         splash.getScene().setFill(Color.TRANSPARENT);
         splash.initStyle(StageStyle.TRANSPARENT);
         splash.showAndWait();
@@ -130,19 +130,19 @@ public class MainUIController implements Initializable {
             tl.stop();
             play.setText("▷");
             AdvancedSettingsController controller = new AdvancedSettingsController();
-            Stage stage = genStage("AdvancedSettings", "/fxml/AdvancedSettings.fxml", controller);
+            Stage stage = Util.genStage("AdvancedSettings", "/fxml/AdvancedSettings.fxml", controller, resource);
             stage.showAndWait();
             initChart(true);
         });
 
         // UIイベント<メニュー>
         openLog.setOnAction(event -> {
-            Stage stage = genStage("Log", "/fxml/LogView.fxml", new LogViewController());
+            Stage stage = Util.genStage("Log", "/fxml/LogView.fxml", new LogViewController(), resource);
             stage.setAlwaysOnTop(true);
             stage.show();
         });
         openCredit.setOnAction(event -> {
-            genStage("Credit", "/fxml/Credit.fxml", null).show();
+            Util.genStage("Credit", "/fxml/Credit.fxml", null, resource).show();
         });
 
         // UIイベント<スライダー>
@@ -272,7 +272,7 @@ public class MainUIController implements Initializable {
      */
     private void addRock() {
         GenRockController controller = new GenRockController();
-        Stage stage = genStage("Gen Rock", "/fxml/GenRock.fxml", controller);
+        Stage stage = Util.genStage("Gen Rock", "/fxml/GenRock.fxml", controller, resource);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         if(controller.inputOK()) {
@@ -304,32 +304,5 @@ public class MainUIController implements Initializable {
             heightTVal = heightFVal+baseSize*aratio;
         }
         heightT.setDisable(Settings.AxisNormalize);
-    }
-
-    /**
-     * FXMLファイルを元にStageを生成して返す
-     *
-     * @param title ウィンドウタイトル
-     * @param path FXMLファイルのパス
-     * @param controller UIController
-     */
-    private <T> Stage genStage(String title, String path, T controller) {
-        // FXML読み込み
-        Scene scene = null;
-        try {
-            FXMLLoader loader  = new FXMLLoader(getClass().getResource(path), resource);
-            if(controller != null)
-                loader.setController(controller);
-            scene = new Scene(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-        // 設定
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle(title);
-        return stage;
     }
 }

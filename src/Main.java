@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import java.net.URL;
 import java.net.URLClassLoader;
 
+import util.Util;
 import controller.MainUIController;
 
 public class Main extends Application {
@@ -21,30 +22,25 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        try {
-            // 画面サイズ取得
-            Rectangle2D d = Screen.getPrimary().getVisualBounds();
-            int width = (int)Math.min(1280, d.getWidth());
-            int height = (int)Math.min(800, d.getHeight());
+        // 画面サイズ取得
+        Rectangle2D d = Screen.getPrimary().getVisualBounds();
+        int width = (int)Math.min(1280, d.getWidth());
+        int height = (int)Math.min(800, d.getHeight());
 
-            // Property
-            URL propURLs[] = { getClass().getResource("/fxml/locale/") };
-            URLClassLoader urlLoader = new URLClassLoader(propURLs);
+        // Property
+        URL propURLs[] = { getClass().getResource("/fxml/locale/") };
+        URLClassLoader urlLoader = new URLClassLoader(propURLs);
 
-            // Scene初期化
-            Locale locale = Locale.getDefault();
-            ResourceBundle resource = ResourceBundle.getBundle("locale", locale, urlLoader);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainUI.fxml"), resource);
-            loader.setController(new MainUIController());
-            Scene scene = new Scene(loader.load(), width, height);
-
-            // Stage初期化
-            stage.setTitle("Volcanic Rock Simulator");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // ウィンドウ起動
+        Stage mainStage = Util.genStage(
+            width,
+            height,
+            "Volcanic Rock Simulator",      // title
+            "/fxml/MainUI.fxml",            // fxml path
+            new MainUIController(),         // controller
+            ResourceBundle.getBundle("locale", Locale.getDefault(), urlLoader)      // resource
+        );
+        mainStage.show();
     }
 
 }
