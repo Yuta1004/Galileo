@@ -70,7 +70,7 @@ public class GenRockController implements Initializable {
      */
     private void validateInput() {
         // id, 色
-        id = idTf.getText() == "" ? "Rock" : idTf.getText();
+        id = idTf.getText().equals("") ? "Rock"+(int)(Math.random()*100) : idTf.getText();
         color = colorPicker.getValue().toString();
 
         // その他属性
