@@ -26,7 +26,7 @@ public class AirResistanceRock extends Rock {
      * @param diameter 噴石の直径(m)
      */
     public AirResistanceRock(String id, double x, double y, double v0, double theta, double diameter) {
-        super(x, y, v0, theta);
+        super(id, x, y, v0, theta);
         this.diameter = diameter;
 
         // 定数初期化
