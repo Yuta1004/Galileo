@@ -5,8 +5,8 @@ import db.Settings;
 
 public abstract class Rock {
 
-    public final String id;
     protected double x, y;
+    protected final String id;
     protected final double v0, theta;
     protected final double X, Y;
     public static double G = 9.8;
@@ -30,6 +30,15 @@ public abstract class Rock {
         this.y = y;
         this.v0 = v0;
         this.theta = theta;
+    }
+
+    /**
+     * idを返す
+     *
+     * @return String id
+     */
+    public String getID() {
+        return id;
     }
 
     /**
