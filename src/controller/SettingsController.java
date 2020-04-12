@@ -8,12 +8,15 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 
-import java.util.ResourceBundle;
 import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Hashtable;
+import java.util.Collections;
 
 import db.Log;
 import db.Settings;
 import util.Util;
+import util.Fluid;
 
 public class SettingsController implements Initializable {
 
@@ -29,17 +32,22 @@ public class SettingsController implements Initializable {
     @FXML
     private ChoiceBox cdChoice;
 
+    // 抵抗係数管理
+    private Hashtable<String, Fluid> cdPreset;
+
     @Override
     public void initialize(URL location, ResourceBundle resource) {
-        // 初期化
+        // cdPreset初期化
+        cdPreset = new Hashtable<String, Fluid>();
+        cdPreset.put(resource.getString("Air"), Fluid.AIR);
+
+        // 初期化(UI部品)
+        stepVal.setText(""+Settings.StepVal);
         rockMagValue.setValue(Settings.RockMagnification);
         rockMagValueV.setText("x "+Settings.RockMagnification);
-        viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
         axisNormalize.setSelected(Settings.AxisNormalize);
-        stepVal.setText(""+Settings.StepVal);
-        cdChoice.getItems().addAll(
-            resource.getString("Air")
-        );
+        viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
+        cdChoice.getItems().addAll(Collections.list(cdPreset.keys()));
         cdChoice.setValue(resource.getString("Air"));
 
         // 噴石拡大表示
@@ -65,6 +73,10 @@ public class SettingsController implements Initializable {
         // ステップ値
         stepVal.textProperty().addListener((obs, oldVal, newVal) -> {
             Settings.StepVal = Util.parseDouble(newVal, 0.0);
+        });
+        // 抵抗係数
+        cdChoice.setOnAction(event -> {
+            Settings.FluidID = cdPreset.get(cdChoice.getValue());
         });
     }
 }
