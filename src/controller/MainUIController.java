@@ -102,7 +102,7 @@ public class MainUIController implements Initializable {
             play.setText("▷");
             clock.setText(rockManager.clock+"");
             setData(rockManager.getChartData());
-            Log.add("Reset simulation (Registerd data is still saved)");
+            Log.add("Reset simulation");
         });
         play.setOnAction(event -> {
             if(tl.getStatus().equals(Animation.Status.RUNNING)) {
