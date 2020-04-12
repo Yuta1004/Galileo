@@ -1,6 +1,7 @@
 package simulator;
 
 import db.Settings;
+import util.CdCalcTable;
 
 public class AirResistanceRock extends Rock {
 
@@ -30,8 +31,9 @@ public class AirResistanceRock extends Rock {
         this.diameter = diameter;
 
         // 定数初期化
+        // ※cdは流速に対して変化するが、計算(pow)の使用量が大変なことになるので初期状態のみ計算 => 以降そのまま
+        cd = CdCalcTable.calc(Settings.FluidID, diameter, v0);
         dt = 0.1;
-        cd = diameter == 0.01 ? 0.4 : 0.2;
         rho_air = 1.2;
         rho_rock = 2800;
         mass = rho_rock*(4.0/3.0)*PI*Math.pow(diameter/2.0, 3);
