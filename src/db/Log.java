@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 public class Log {
 
-    private static int fetchedNum = 0;
-    private static boolean updatedFlag = false;
-    private static ArrayList<String> logData = new ArrayList<String>();
+    private static int fetchedNum ;
+    private static boolean updatedFlag;
+    private static ArrayList<String> logData;
+
+    /**
+     * 初期化
+     */
+    static {
+        fetchedNum = 0;
+        updatedFlag = false;
+        logData = new ArrayList<String>();
+        logData.add("0: Welcome!");
+    }
 
     /**
      * ログを追加する
