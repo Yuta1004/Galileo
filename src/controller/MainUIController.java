@@ -129,8 +129,8 @@ public class MainUIController implements Initializable {
         openSettings.setOnAction(event -> {
             tl.stop();
             play.setText("▷");
-            AdvancedSettingsController controller = new AdvancedSettingsController();
-            Stage stage = Util.genStage("AdvancedSettings", "/fxml/AdvancedSettings.fxml", controller, resource);
+            SettingsController controller = new SettingsController();
+            Stage stage = Util.genStage("Settings", "/fxml/Settings.fxml", controller, resource);
             stage.showAndWait();
             initChart(true);
         });

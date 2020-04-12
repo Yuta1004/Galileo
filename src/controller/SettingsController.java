@@ -14,7 +14,7 @@ import db.Log;
 import db.Settings;
 import util.Util;
 
-public class AdvancedSettingsController implements Initializable {
+public class SettingsController implements Initializable {
 
     // UI部品
     @FXML
