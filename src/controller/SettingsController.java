@@ -34,23 +34,19 @@ public class SettingsController implements Initializable {
 
     // 抵抗係数管理
     private Hashtable<String, Fluid> cdPreset;
+    private Hashtable<Fluid, String> rcdPreset;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
-        // cdPreset初期化
-        cdPreset = new Hashtable<String, Fluid>();
-        cdPreset.put(resource.getString("Air"), Fluid.AIR);
-        cdPreset.put(resource.getString("Water"), Fluid.WATER);
-        cdPreset.put(resource.getString("Mayo"), Fluid.MAYO);
-
         // 初期化(UI部品)
+        initCdPreset(resource);
         stepVal.setText(""+Settings.StepVal);
         rockMagValue.setValue(Settings.RockMagnification);
         rockMagValueV.setText("x "+Settings.RockMagnification);
         axisNormalize.setSelected(Settings.AxisNormalize);
         viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
         cdChoice.getItems().addAll(Collections.list(cdPreset.keys()));
-        cdChoice.setValue(resource.getString("Air"));
+        cdChoice.setValue(rcdPreset.get(Settings.FluidID));
 
         // 噴石拡大表示
         rockMagValue.valueProperty().addListener((obs, oldVal, newVal) -> {
@@ -80,5 +76,22 @@ public class SettingsController implements Initializable {
         cdChoice.setOnAction(event -> {
             Settings.FluidID = cdPreset.get(cdChoice.getValue());
         });
+    }
+
+    /**
+     * 抵抗係数プリセットリストを初期化する
+     *
+     * @param resource ResourceBundle
+     */
+    private void initCdPreset(ResourceBundle resource) {
+        cdPreset = new Hashtable<String, Fluid>();
+        cdPreset.put(resource.getString("Air"), Fluid.AIR);
+        cdPreset.put(resource.getString("Water"), Fluid.WATER);
+        cdPreset.put(resource.getString("Mayo"), Fluid.MAYO);
+
+        rcdPreset = new Hashtable<Fluid, String>();
+        rcdPreset.put(Fluid.AIR, resource.getString("Air"));
+        rcdPreset.put(Fluid.WATER, resource.getString("Water"));
+        rcdPreset.put(Fluid.MAYO, resource.getString("Mayo"));
     }
 }
