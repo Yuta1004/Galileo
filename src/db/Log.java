@@ -47,6 +47,7 @@ public class Log {
      * 全データ取得
      */
     public static ArrayList<String> getAll() {
+        fetchedNum = logData.size();
         return new ArrayList<String>(logData.subList(0, logData.size()));
     }
 }
