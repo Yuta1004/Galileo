@@ -106,12 +106,12 @@
                                     </AnchorPane>
                                     <AnchorPane GridPane.rowIndex="2">
                                        <children>
-                                          <Label layoutX="-10.0" layoutY="1.0" text="%ConstantDragValue" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="0.0">
+                                          <Label layoutX="-10.0" layoutY="1.0" text="%ViscosityValue" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="0.0">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="cdChoice" prefWidth="120.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
+                                          <ChoiceBox fx:id="visChoice" prefWidth="120.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>

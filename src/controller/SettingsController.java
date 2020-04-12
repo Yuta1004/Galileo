@@ -30,23 +30,23 @@ public class SettingsController implements Initializable {
     @FXML
     private TextField stepVal;
     @FXML
-    private ChoiceBox cdChoice;
+    private ChoiceBox visChoice;
 
     // 抵抗係数管理
-    private Hashtable<String, Fluid> cdPreset;
-    private Hashtable<Fluid, String> rcdPreset;
+    private Hashtable<String, Fluid> visPreset;
+    private Hashtable<Fluid, String> rvisPreset;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
         // 初期化(UI部品)
-        initCdPreset(resource);
+        initVisPreset(resource);
         stepVal.setText(""+Settings.StepVal);
         rockMagValue.setValue(Settings.RockMagnification);
         rockMagValueV.setText("x "+Settings.RockMagnification);
         axisNormalize.setSelected(Settings.AxisNormalize);
         viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
-        cdChoice.getItems().addAll(Collections.list(cdPreset.keys()));
-        cdChoice.setValue(rcdPreset.get(Settings.FluidID));
+        visChoice.getItems().addAll(Collections.list(visPreset.keys()));
+        visChoice.setValue(rvisPreset.get(Settings.FluidID));
 
         // 噴石拡大表示
         rockMagValue.valueProperty().addListener((obs, oldVal, newVal) -> {
@@ -73,25 +73,25 @@ public class SettingsController implements Initializable {
             Settings.StepVal = Util.parseDouble(newVal, 0.0);
         });
         // 抵抗係数
-        cdChoice.setOnAction(event -> {
-            Settings.FluidID = cdPreset.get(cdChoice.getValue());
+        visChoice.setOnAction(event -> {
+            Settings.FluidID = visPreset.get(visChoice.getValue());
         });
     }
 
     /**
-     * 抵抗係数プリセットリストを初期化する
+     * 粘度係数プリセットリストを初期化する
      *
      * @param resource ResourceBundle
      */
-    private void initCdPreset(ResourceBundle resource) {
-        cdPreset = new Hashtable<String, Fluid>();
-        cdPreset.put(resource.getString("Air"), Fluid.AIR);
-        cdPreset.put(resource.getString("Water"), Fluid.WATER);
-        cdPreset.put(resource.getString("Mayo"), Fluid.MAYO);
+    private void initVisPreset(ResourceBundle resource) {
+        visPreset = new Hashtable<String, Fluid>();
+        visPreset.put(resource.getString("Air"), Fluid.AIR);
+        visPreset.put(resource.getString("Water"), Fluid.WATER);
+        visPreset.put(resource.getString("Mayo"), Fluid.MAYO);
 
-        rcdPreset = new Hashtable<Fluid, String>();
-        rcdPreset.put(Fluid.AIR, resource.getString("Air"));
-        rcdPreset.put(Fluid.WATER, resource.getString("Water"));
-        rcdPreset.put(Fluid.MAYO, resource.getString("Mayo"));
+        rvisPreset = new Hashtable<Fluid, String>();
+        rvisPreset.put(Fluid.AIR, resource.getString("Air"));
+        rvisPreset.put(Fluid.WATER, resource.getString("Water"));
+        rvisPreset.put(Fluid.MAYO, resource.getString("Mayo"));
     }
 }
