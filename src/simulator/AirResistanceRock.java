@@ -33,6 +33,7 @@ public class AirResistanceRock extends Rock {
         // 定数初期化
         // ※cdは流速に対して変化するが、計算(pow)の使用量が大変なことになるので初期状態のみ計算 => 以降そのまま
         cd = CdCalcTable.calc(Settings.FluidID, diameter, v0);
+        System.out.println(Settings.FluidID + " " + cd);
         dt = 0.1;
         rho_air = 1.2;
         rho_rock = 2800;

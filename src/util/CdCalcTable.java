@@ -14,10 +14,14 @@ public class CdCalcTable {
         // 粘性係数
         viscosity = new Hashtable<Fluid, Double>();
         viscosity.put(Fluid.AIR, 0.000018);
+        viscosity.put(Fluid.WATER, 0.000089);
+        viscosity.put(Fluid.MAYO, 8.0);
 
         // 流体密度
         density = new Hashtable<Fluid, Double>();
         density.put(Fluid.AIR, 1.2);
+        density.put(Fluid.WATER, 998.233);   // 20度
+        density.put(Fluid.MAYO, 1456.0);
     }
 
     /**

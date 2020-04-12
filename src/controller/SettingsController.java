@@ -40,6 +40,8 @@ public class SettingsController implements Initializable {
         // cdPreset初期化
         cdPreset = new Hashtable<String, Fluid>();
         cdPreset.put(resource.getString("Air"), Fluid.AIR);
+        cdPreset.put(resource.getString("Water"), Fluid.WATER);
+        cdPreset.put(resource.getString("Mayo"), Fluid.MAYO);
 
         // 初期化(UI部品)
         stepVal.setText(""+Settings.StepVal);
