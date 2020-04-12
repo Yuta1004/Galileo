@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
 
 import java.util.ResourceBundle;
 import java.net.URL;
@@ -25,6 +26,8 @@ public class SettingsController implements Initializable {
     private CheckBox viewRatioNormalize, axisNormalize;
     @FXML
     private TextField stepVal;
+    @FXML
+    private ChoiceBox cdChoice;
 
     @Override
     public void initialize(URL location, ResourceBundle resource) {
@@ -34,6 +37,10 @@ public class SettingsController implements Initializable {
         viewRatioNormalize.setSelected(Settings.ViewRatioNormalize);
         axisNormalize.setSelected(Settings.AxisNormalize);
         stepVal.setText(""+Settings.StepVal);
+        cdChoice.getItems().addAll(
+            resource.getString("Air")
+        );
+        cdChoice.setValue(resource.getString("Air"));
 
         // 噴石拡大表示
         rockMagValue.valueProperty().addListener((obs, oldVal, newVal) -> {

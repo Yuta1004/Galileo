@@ -111,7 +111,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox disable="true" prefWidth="120.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
+                                          <ChoiceBox fx:id="cdChoice" prefWidth="120.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
