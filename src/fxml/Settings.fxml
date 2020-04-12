@@ -91,7 +91,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                           </Label>
-                                          <CheckBox fx:id="viewRatioNormalize" mnemonicParsing="false" text="%Enable" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0" />
+                                          <CheckBox fx:id="viewRatioNormalize" mnemonicParsing="false" selected="true" text="%Enable" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane GridPane.rowIndex="1">
