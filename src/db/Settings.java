@@ -10,6 +10,5 @@ public class Settings {
     public static boolean ViewRatioNormalize = true;
     public static boolean AxisNormalize = false;
     public static double StepVal = 0.1;
-    // public static double ConstantDrag = 0.2;
 
 }
