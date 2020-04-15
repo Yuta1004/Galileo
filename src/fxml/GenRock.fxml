@@ -85,7 +85,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="thetaTf" alignment="CENTER_RIGHT" prefWidth="100.0" text="0" />
+                        <TextField fx:id="thetaTf" alignment="CENTER_RIGHT" prefWidth="100.0" text="60" />
                         <Label alignment="CENTER" text="°">
                            <font>
                               <Font size="22.0" />
@@ -110,7 +110,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="diameterTf" alignment="CENTER_RIGHT" prefWidth="100.0" text="1.2" />
+                        <TextField fx:id="diameterTf" alignment="CENTER_RIGHT" prefWidth="100.0" text="1.0" />
                         <Label alignment="CENTER" text="m">
                            <font>
                               <Font size="22.0" />
