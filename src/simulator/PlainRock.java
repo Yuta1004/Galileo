@@ -34,10 +34,12 @@ public class PlainRock extends Rock {
     @Override
     public void move() {
         // 着地判定
+        if(hitGroundFlag) return;
         dt = Settings.StepVal;
         if(!hitGroundFlag && moveCnt > 0 && y <= 0) {
             hitGroundFlag = true;
             calSpeedAndArg(xb, yb, x, y);
+            return;
         }
 
         // ステップ値計算

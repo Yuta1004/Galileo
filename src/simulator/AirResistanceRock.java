@@ -47,10 +47,12 @@ public class AirResistanceRock extends Rock {
     @Override
     public void move() {
         // 着地判定
+        if(hitGroundFlag) return;
         dt = Settings.StepVal;
         if(!hitGroundFlag && moveCnt > 0 && y <= 0) {
             hitGroundFlag = true;
             calSpeedAndArg(xb, yb, x, y);
+            return;
         }
 
         double tmp = 0.5*cd*rho_air*area*Math.sqrt(Math.pow(vxp, 2)+Math.pow(vyp, 2));
