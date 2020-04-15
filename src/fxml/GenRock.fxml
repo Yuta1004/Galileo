@@ -70,7 +70,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="v0Tf" alignment="CENTER_RIGHT" prefWidth="100.0" text="100" />
+                        <TextField fx:id="v0Tf" alignment="CENTER_RIGHT" prefWidth="100.0" text="110" />
                         <Label alignment="CENTER" text="m/s">
                            <font>
                               <Font size="22.0" />
