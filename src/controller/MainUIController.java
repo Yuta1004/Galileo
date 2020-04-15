@@ -73,8 +73,8 @@ public class MainUIController implements Initializable {
         this.resource = resource;
         updateSpeed = 1.0;
         widthFVal = heightFVal = 0;
-        widthTVal = 500;
-        heightTVal = 500;
+        widthTVal = 1500;
+        heightTVal = 725;
         initUI();
         initChart(false);
         rockManager = new RockManager();
