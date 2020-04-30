@@ -35,7 +35,7 @@ public class Main extends Application {
         Stage mainStage = Util.genStage(
             width,
             height,
-            "Volcanic Rock Simulator",      // title
+            "Galileo",      // title
             "/fxml/MainUI.fxml",            // fxml path
             new MainUIController(),         // controller
             ResourceBundle.getBundle("locale", Locale.getDefault(), urlLoader)      // resource
